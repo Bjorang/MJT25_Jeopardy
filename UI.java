@@ -1,10 +1,7 @@
 
 public class UI {
     public static void main(String[] args) {
-
-        System.out.println("");
-
-        
+    
         String[] cat_u = {"      [A]   ","   [B]   ","   [C]  ", "    [D] ", "     [E]  ","    [F]",};
         String[] cat_0 = {"   [Animals]","[ Films ]","[ Games ]","[ Music ]","[ Anime ]","[   TV  ]",};
 
@@ -15,6 +12,15 @@ public class UI {
         String[] cat_5 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[ 1000  ]",};
         String[] cat_6 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[ 1000  ]",};
 
+
+
+
+
+            public static void playGame() {
+                
+            }
+        
+        
         String[][] catt = {cat_u, cat_0,};
         String[][] cats = {cat_1, cat_2, cat_3, cat_4, cat_5, cat_6};
         
