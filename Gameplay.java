@@ -3,8 +3,10 @@ import java.util.Scanner;
 public class Gameplay {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String correctAnswer = "hej";
+        String correctAnswer = Questions();
 
+        UI ui = new UI();
+        ui.printUI();
         String userInput = sc.nextLine().toLowerCase();
         boolean  isCorrect= userInput.equals(correctAnswer);
 
@@ -14,6 +16,7 @@ public class Gameplay {
 
             if (isCorrect){
                 System.out.println("nu lyckades du din jävel");
+                break;
             }
 
             else {
