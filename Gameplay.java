@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class Gameplay {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String correctAnswer = Questions();
+        
+        String correctAnswer = Questions(questRowA[0][0]);
 
         UI ui = new UI();
         ui.printUI();
