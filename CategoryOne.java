@@ -1,6 +1,6 @@
 public class CategoryOne {
     
-    String categoryName;
+    String categoryName ="Meme-djur";
     String question;
     String[] catQuest1;
 }
