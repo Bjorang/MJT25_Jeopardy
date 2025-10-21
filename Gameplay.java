@@ -7,9 +7,11 @@ public class Gameplay {
 
         String userInput = sc.nextLine().toLowerCase();
         boolean  isCorrect= userInput.equals(correctAnswer);
+
+        int numberOfRounds = 0;
         
-        for (int i = 0; i < 3; i++){
-            
+        while (numberOfRounds < 3) {
+
             if (isCorrect){
                 System.out.println("nu lyckades du din jävel");
             }
