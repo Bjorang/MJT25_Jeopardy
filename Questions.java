@@ -2,7 +2,7 @@ public class Questions {
 
     String[][] questRowA = new String[6][5];
 
-    public Questions() {
+    public String Questions (String input) {
         
         // a1. Animals 100
         questRowA[0][0] = "Djuret som säger 'It is Wednesday, my dudes'";
@@ -45,6 +45,8 @@ public class Questions {
         questRowA[5][2] = "b. Vad är Dancing Ferret?";
         questRowA[5][3] = "c. Vad är Banana Cat?";
         questRowA[5][4] = "a";
+
+        return input;
 
         
 
