@@ -1,6 +1,7 @@
 public class CategoryOne {
     
-    String CategoryName;
+    String categoryName;
     String question;
-    String questionArray[];
+    String[] catQuest1;
 }
+
