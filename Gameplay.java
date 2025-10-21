@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Gameplay {
-    public static void playRound(){
+    public  void playRound(){
         int numberOfRounds = 0;
         
         while (numberOfRounds < 3) {
@@ -27,10 +27,11 @@ public class Gameplay {
                 System.out.println("OMFG DU HADDE RÄTT!!!");
             } else {
                 System.out.println("lol fel!");
-                numberOfRounds++;
+                
             }
+            numberOfRounds++;
         }
-        
+    
 
         if (numberOfRounds == 3){
 
