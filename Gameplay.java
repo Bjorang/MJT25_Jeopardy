@@ -21,7 +21,7 @@ public class Gameplay {
         }
 
         System.out.print("Svar: ");
-        s.close();  //Stängde Scannern
+        
         String answer = s.next();
             if (answer.equals(question[4])) {
                 System.out.println("OMFG DU HADDE RÄTT!!!");
@@ -30,6 +30,7 @@ public class Gameplay {
                
             }
              numberOfRounds++;
+             
         }
     
 
