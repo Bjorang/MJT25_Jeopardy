@@ -27,15 +27,9 @@ public class Gameplay {
                 System.out.println("OMFG DU HADDE RÄTT!!!");
             } else {
                 System.out.println("lol fel!");
-<<<<<<< HEAD
-                
-            }
-            numberOfRounds++;
-=======
                
             }
              numberOfRounds++;
->>>>>>> 30c81a8 (Tog bort en ändring för att kunna göra en pull)
         }
     
 
