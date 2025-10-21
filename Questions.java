@@ -2,7 +2,8 @@ public class Questions {
 
     String[][] questRowA = new String[6][5];
 
-    public String Questions (String input) {
+    public Questions () {
+
         
         // a1. Animals 100
         questRowA[0][0] = "Djuret som säger 'It is Wednesday, my dudes'";
@@ -46,13 +47,28 @@ public class Questions {
         questRowA[5][3] = "c. Vad är Banana Cat?";
         questRowA[5][4] = "a";
 
-        return input;
-
+        }
         
 
+        public String[] getQuestion(String input) {
+        
+        input = input.toLowerCase();
 
+        // category letter → decide which array to use later (for now only A)
+        char category = input.charAt(0);
 
+        // question number → convert the digit part to an index
+        int questionIndex = Character.getNumericValue(input.charAt(1)) - 1;
 
+        // ensure input is valid
+        if (category != 'a' || questionIndex < 0 || questionIndex >= questRowA.length) {
+            return new String[]{"Invalid question code!"};
+        }
+
+        // return full question row (Q + answers + correct option)
+        return questRowA[questionIndex];
+
+  
 
     }
 }
