@@ -1,10 +1,12 @@
+import java.util.Scanner;
+
 public class Questions {
 
     String[][] questRowA = new String[6][5];
+    String[][] questRowB = new String[6][5];
 
     public Questions () {
 
-        
         // a1. Animals 100
         questRowA[0][0] = "Djuret som säger 'It is Wednesday, my dudes'";
         questRowA[0][1] = "a. Vad är en groda?";
@@ -47,28 +49,79 @@ public class Questions {
         questRowA[5][3] = "c. Vad är Banana Cat?";
         questRowA[5][4] = "a";
 
+        // b1. Film Memes 100
+        questRowB[0][0] = "Detta citat kommer från filmen där Leonardo DiCaprio höjer ett glas i ett meme";
+        questRowB[0][1] = "a. Vad är Inception?";
+        questRowB[0][2] = "b. Vad är The Great Gatsby?";
+        questRowB[0][3] = "c. Vad är Titanic?";
+        questRowB[0][4] = "b";
+
+        // b2. Film Memes 200
+        questRowB[1][0] = "Memen 'One does not simply...' kommer från denna fantasyfilm";
+        questRowB[1][1] = "a. Vad är Harry Potter?";
+        questRowB[1][2] = "b. Vad är Sagan om Ringen?";
+        questRowB[1][3] = "c. Vad är Game of Thrones?";
+        questRowB[1][4] = "b";
+
+        // b3. Film Memes 400
+        questRowB[2][0] = "Memen där en man i blå skjorta tittar förvånat bakåt på sin flickvän kallas...";
+        questRowB[2][1] = "a. Vad är The Distracted Boyfriend?";
+        questRowB[2][2] = "b. Vad är The Office?";
+        questRowB[2][3] = "c. Vad är Shrek Reaction?";
+        questRowB[2][4] = "a";
+
+        // b4. Film Memes 600
+        questRowB[3][0] = "Citatet 'Here's Johnny!' används ofta i memes och kommer från denna film";
+        questRowB[3][1] = "a. Vad är The Shining?";
+        questRowB[3][2] = "b. Vad är Psycho?";
+        questRowB[3][3] = "c. Vad är American Psycho?";
+        questRowB[3][4] = "a";
+
+        // b5. Film Memes 800
+        questRowB[4][0] = "Denna gröna karaktär ropar 'Somebody once told me...' i början av många memes";
+        questRowB[4][1] = "a. Vad är Hulk?";
+        questRowB[4][2] = "b. Vad är Shrek?";
+        questRowB[4][3] = "c. Vad är Yoda?";
+        questRowB[4][4] = "b";
+
+        // b6. Film Memes 1000
+        questRowB[5][0] = "I vilken film säger karaktären 'Why so serious?' som senare blev en meme?";
+        questRowB[5][1] = "a. Vad är The Dark Knight?";
+        questRowB[5][2] = "b. Vad är Joker?";
+        questRowB[5][3] = "c. Vad är Suicide Squad?";
+        questRowB[5][4] = "a";
+
         }
         
+    public String[] getQuestion(String input) {
 
-        public String[] getQuestion(String input) {
-        
-        input = input.toLowerCase();
+    System.out.print("Välj en fråga (t.ex. a1 - a6): ");
+    Scanner s = new Scanner(System.in);
 
-        // category letter → decide which array to use later (for now only A)
-        char category = input.charAt(0);
+    input = s.next().toLowerCase();
 
-        // question number → convert the digit part to an index
-        int questionIndex = Character.getNumericValue(input.charAt(1)) - 1;
+    char category = input.charAt(0);
+    int questionIndex = Character.getNumericValue(input.charAt(1)) - 1;
 
-        // ensure input is valid
-        if (category != 'a' || questionIndex < 0 || questionIndex >= questRowA.length) {
+        if (category < 'a' || category > 'f' || questionIndex < 0 || questionIndex >= questRowA.length) {
             return new String[]{"Invalid question code!"};
+            
         }
 
-        // return full question row (Q + answers + correct option)
-        return questRowA[questionIndex];
+    String[][] selectedCategory;
+        switch (category) {
+            case 'a' -> selectedCategory = questRowA;
+            case 'b' -> selectedCategory = questRowB;
+        /*  case 'c' -> selectedCategory = questRowC;
+            case 'd' -> selectedCategory = questRowD;
+            case 'e' -> selectedCategory = questRowE;
+            case 'f' -> selectedCategory = questRowF; */
+            default  -> {
+                return new String[]{"Invalid category!"};
+                }
+            }
 
-  
+        return selectedCategory[questionIndex];
 
     }
 }
