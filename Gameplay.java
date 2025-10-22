@@ -12,9 +12,22 @@ public class Gameplay {
 
         Scanner s = new Scanner(System.in);
         Questions q = new Questions();
-
+        String userIn = "";
+        Boolean inputOK = false;
         System.out.print("Välj en fråga (t.ex. a1 - a6): ");
-        String userIn = s.next().toLowerCase();
+       
+        do {
+            userIn = s.next().toLowerCase();
+            inputOK = inputCheck(userIn);
+            System.out.println(inputOK);
+            if (inputOK == false) {
+                System.out.print("Felaktig input! Vänligen försök igen: ");
+            } else {
+        
+            }
+        
+        } while (inputOK==false);
+        
         String[] question = q.getQuestion(userIn);
 
         ui.editUI(userIn); 
@@ -40,4 +53,19 @@ public class Gameplay {
             System.out.println("nu har du slut på antal rundor");
         }
     }
+
+    public boolean inputCheck(String input) {
+
+        if (input == null || input.length() < 2) {
+        return false;
+    }
+        char category = input.charAt(0);
+        int questionIndex = Character.getNumericValue(input.charAt(1));
+            
+            if (category < 'a' || category > 'f' || questionIndex < 1 || questionIndex > 6) {
+                    return false; 
+                } else {
+                    return true;
+                    }
+            }
 }

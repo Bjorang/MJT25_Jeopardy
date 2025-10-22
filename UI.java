@@ -43,7 +43,7 @@ public class UI {
     int questionIndex = Character.getNumericValue(input.charAt(1)) - 1;
 
         if (category < 'a' || category > 'f' || questionIndex < 0 || questionIndex >= cat_01.length) {
-            System.out.println("Invalid question code!"); 
+            System.out.println("UI"); 
             return;
         }
 
