@@ -1,8 +1,12 @@
 public class Score {
     
-private int totalScore(){
-if question.questRowA
+    private int totalScore = 0;
 
+
+    public void addPoint(int points){
+        this.totalScore += totalScore;
 }
-
+public int getTotalScore (){
+    return totalScore;
+}
 }
