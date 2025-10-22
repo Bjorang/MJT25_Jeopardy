@@ -1,1 +1,5 @@
-Testar att puscha upp en fil till GITHUB
+Nästa uppgift:
+
+Anders - fixa så programmet ska räkna och spara undan spelarens poäng
+Liz - fixar resten av frågorna + ev black-out-rutorna 
+Peter - Lägg in timer som räknar ner tiden, spelaren ska ha max 10 sec per fråga. 

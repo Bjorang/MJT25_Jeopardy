@@ -1,7 +1,8 @@
 public class Main {
     public static void main(String[] args) {
+    Gameplay play = new Gameplay();
 
-        UI ui = new UI();
-        ui.printUI();
+    play.playRound(); 
+    //
     }
 }
