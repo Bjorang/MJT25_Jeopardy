@@ -3,5 +3,6 @@ public class Variables {
     String correctAnswer;
     String userInput;
     int tempScore;
+    String emptySquare = "[       ]";
     
 }

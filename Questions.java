@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class Questions {
 
@@ -138,17 +137,11 @@ public class Questions {
         
     public String[] getQuestion(String input) {
 
-    System.out.print("Välj en fråga (t.ex. a1 - a6): ");
-    Scanner s = new Scanner(System.in);
-
-    input = s.next().toLowerCase();
-
     char category = input.charAt(0);
     int questionIndex = Character.getNumericValue(input.charAt(1)) - 1;
 
         if (category < 'a' || category > 'f' || questionIndex < 0 || questionIndex >= questRowA.length) {
-            return new String[]{"Invalid question code!"};
-            
+            return new String[]{"Invalid question code!"}; 
         }
 
     String[][] selectedCategory;
@@ -167,4 +160,5 @@ public class Questions {
         return selectedCategory[questionIndex];
 
     }
+    
 }
