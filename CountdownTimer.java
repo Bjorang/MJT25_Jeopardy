@@ -1,9 +1,11 @@
 import java.util.Scanner;
 
+import java.util.Scanner;
+
 public class CountdownTimer {
-    private  boolean answered = false;
+    private static boolean answered = false;
     
-    public  void countDown(int start){
+    public static void countDown(int start){
 
         Scanner s = new Scanner(System.in);
 
@@ -13,7 +15,7 @@ public class CountdownTimer {
             if (answered){
                 return;
             }
-            System.out.print("\r Tid kvar: " + i + " Ditt svar: ");
+            System.out.print("\r Tid kvar: " + i + " Ditt svar:");
             
             try {
                 Thread.sleep(1000);
@@ -30,9 +32,16 @@ public class CountdownTimer {
     });
     cD.start();
     System.out.println();
-
-    answered = true;
     
+    String input =s.nextLine();
+   
+    answered = true;
+    System.out.println("Du svarde: " + input);
     s.close();
     }
+        public static void main(String[] args) {
+            countDown(10);
+        }
+    
+    
 }
