@@ -13,7 +13,7 @@ public class CountdownTimer {
             if (answered){
                 return;
             }
-            System.out.print("\r Tid kvar: " + i + " Ditt svar:");
+            System.out.print("\r Tid kvar: " + i + " Ditt svar: ");
             
             try {
                 Thread.sleep(1000);
@@ -39,5 +39,5 @@ public class CountdownTimer {
     }
         public static void main(String[] args) {
             countDown(10);
-        }
+        } 
 }
