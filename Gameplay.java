@@ -1,17 +1,23 @@
 import java.util.Scanner;
 
 public class Gameplay {
+
+    private Score scoreTracker = new Score();
     public  void playRound(){
+        
+        
         
         Variables vars = new Variables(); 
         UI ui = new UI();
-        
+        Scanner s = new Scanner(System.in);
+        Questions q = new Questions();
+
         while (vars.numberOfRounds < 3) {
 
             ui.printUI();
 
-            Scanner s = new Scanner(System.in);
-            Questions q = new Questions();
+            
+            
             
             System.out.print("Välj en fråga (t.ex. a1 - a6): ");
         
@@ -38,11 +44,23 @@ public class Gameplay {
         System.out.print("Svar: ");
         String answer = s.next();
 
+        // Poängberäkning, Hämtar värdet i tex 1 i tex A1
+char questionIndexChar = vars.userIn.charAt(1);
+int questionIndex = Character.getNumericValue(questionIndexChar) -1;
+int pointsEarned; 
+
             if (answer.equals(question[4])) {
-                System.out.println("OMFG DU HADE RÄTT!!!");
+                // hämtar poäng från Array.
+                pointsEarned=Variables.storeScore[questionIndex];
+                System.out.println("Korrekt svar, du får "+ pointsEarned+ " poäng!");
+                
             } else {
                 System.out.println("lol fel!"); 
+                pointsEarned = 0;
             }
+            scoreTracker.addPoints(pointsEarned);
+            System.out.println("Aktuell poängställning " + scoreTracker.getTotalScore());
+
             vars.numberOfRounds++;
             
         }
