@@ -4,18 +4,16 @@ public class UI {
     
         String[] cat_u = {"      [A]   ","   [B]   ","   [C]  ", "    [D] ", "     [E]  ","    [F]",};
         String[] cat_0 = {"   [Animals]","[ Films ]","[ Games ]","[ Music ]","[ Anime ]","[   TV  ]",};
-
-        String[] cat_1 = {"[1][  100  ]","[2][  200  ]","[3][  400  ]","[4][  600  ]","[5][  800  ]","[6][ 1000  ]",};
-        String[] cat_2 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[ 1000  ]",};
-        String[] cat_3 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[ 1000  ]",};
-        String[] cat_4 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[ 1000  ]",};
-        String[] cat_5 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[ 1000  ]",};
-        String[] cat_6 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[ 1000  ]",};
-
-
+        String[] cat_00 = {"[1]","[2]","[3]","[4]","[5]","[6]",};
+        String[] cat_01 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[  1000 ]",};
+        String[] cat_02 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[  1000 ]",};
+        String[] cat_03 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[  1000 ]",};
+        String[] cat_04 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[  1000 ]",};
+        String[] cat_05 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[  1000 ]",};
+        String[] cat_06 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[  1000 ]",};
+    
         String[][] catt = {cat_u, cat_0,};
-        String[][] cats = {cat_1, cat_2, cat_3, cat_4, cat_5, cat_6};
-
+        String[][] cats = {cat_00, cat_01, cat_02, cat_03, cat_04, cat_05, cat_06,};
         
         public void printUI(){
         
@@ -27,18 +25,43 @@ public class UI {
             System.out.println("");
         }
         
-        for (int x = 0 ; x < cats.length; x++) {
-
-            for (int y = 0; y < cats[x].length; y++) {
-                System.out.print(cats[y][x]);
+        for (int y = 0 ; y < cats[0].length; y++) {
+            for (int x = 0; x < cats.length; x++) {
+                System.out.print(cats[x][y]);
             }
             System.out.println("");
         }
         
         System.out.println("");
     
-        
-        
     }
 
+        public void editUI(String input){
+            
+
+    char category = input.charAt(0);
+    int questionIndex = Character.getNumericValue(input.charAt(1)) - 1;
+
+        if (category < 'a' || category > 'f' || questionIndex < 0 || questionIndex >= cat_01.length) {
+            System.out.println("Wrong UI Input"); 
+            return;
+        }
+
+    String[] selectedCategory;
+        switch (category) {
+            case 'a' -> selectedCategory = cat_01;
+            case 'b' -> selectedCategory = cat_02;
+            case 'c' -> selectedCategory = cat_03;
+            case 'd' -> selectedCategory = cat_04;
+            case 'e' -> selectedCategory = cat_05;
+            case 'f' -> selectedCategory = cat_06;
+            default  -> {
+                System.out.println("Invalid question code!"); 
+                return;
+                }
+            }
+        
+            selectedCategory[questionIndex] = "[       ]";
+    
+        }
 }
