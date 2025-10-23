@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class UI {
 
@@ -33,12 +34,12 @@ public class UI {
         }
         
         System.out.println("");
+        System.out.print("Välj en fråga (t.ex. a1 - a6): ");
     
     }
 
         public void editUI(String input){
             
-
     char category = input.charAt(0);
     int questionIndex = Character.getNumericValue(input.charAt(1)) - 1;
 
@@ -64,4 +65,16 @@ public class UI {
             selectedCategory[questionIndex] = "[       ]";
     
         }
+
+        public String printQuestion(String[] question, Scanner s) {
+        System.out.println();
+
+        for (int i = 0; i < 4; i++) {
+            System.out.println(question[i]);
+        }
+
+        System.out.print("Svar: ");
+        return s.next();
+    }
+    
 }
