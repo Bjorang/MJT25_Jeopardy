@@ -42,6 +42,4 @@ public class CountdownTimer {
         public static void main(String[] args) {
             countDown(10);
         }
-    
- //a   
 }
