@@ -1,9 +1,7 @@
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicBoolean;
 public class Gameplay {
-
-    private Score scoreTracker = new Score();
-        
+    
     Scanner s = new Scanner(System.in); 
     Variables vars = new Variables();
 
@@ -17,9 +15,9 @@ public class Gameplay {
         
         while (vars.numberOfRounds < 3) {
 
-        ui.printUI();
+            ui.printUI();
 
-        userIn(); 
+            userIn(); 
 
         vars.currentQuestion = q.getQuestion(vars.userIn);
           
@@ -28,9 +26,9 @@ public class Gameplay {
         Thread timerThread = countDown(10);
         countDown(10);
 
-        vars.answer = ui.printQuestion(vars.currentQuestion, s);
+            vars.answer = ui.printQuestion(vars.currentQuestion, s);
 
-        vars.answered.set(true);
+            vars.answered.set(true);
 
         //userAnswer();
 
@@ -128,6 +126,7 @@ int pointsEarned;
     } 
 
     public Thread countDown(int start){
+        
         Thread cD = new Thread(() ->{
             for (int i = start; i >= 0; i--){
             

@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class UI {
+        Variables vars = new Variables();
 
-    
         String mainMenu = """
 
 
@@ -122,16 +122,16 @@ public class UI {
 
         public void printUI(){
         
-        for (int x = 0 ; x < catt.length; x++) {
-            for (int y = 0; y < catt[x].length; y++) {
-                System.out.print(catt[x][y]);
+        for (int x = 0 ; x < vars.catt.length; x++) {
+            for (int y = 0; y < vars.catt[x].length; y++) {
+                System.out.print(vars.catt[x][y]);
             }
             System.out.println("");
         }
         
-        for (int y = 0 ; y < cats[0].length; y++) {
-            for (int x = 0; x < cats.length; x++) {
-                System.out.print(cats[x][y]);
+        for (int y = 0 ; y < vars.cats[0].length; y++) {
+            for (int x = 0; x < vars.cats.length; x++) {
+                System.out.print(vars.cats[x][y]);
             }
             System.out.println("");
         }
@@ -146,19 +146,19 @@ public class UI {
     char category = input.charAt(0);
     int questionIndex = Character.getNumericValue(input.charAt(1)) - 1;
 
-        if (category < 'a' || category > 'f' || questionIndex < 0 || questionIndex >= cat_01.length) {
+        if (category < 'a' || category > 'f' || questionIndex < 0 || questionIndex >= vars.cat_01.length) {
             System.out.println("Wrong UI Input"); 
             return;
         }
 
     String[] selectedCategory;
         switch (category) {
-            case 'a' -> selectedCategory = cat_01;
-            case 'b' -> selectedCategory = cat_02;
-            case 'c' -> selectedCategory = cat_03;
-            case 'd' -> selectedCategory = cat_04;
-            case 'e' -> selectedCategory = cat_05;
-            case 'f' -> selectedCategory = cat_06;
+            case 'a' -> selectedCategory = vars.cat_01;
+            case 'b' -> selectedCategory = vars.cat_02;
+            case 'c' -> selectedCategory = vars.cat_03;
+            case 'd' -> selectedCategory = vars.cat_04;
+            case 'e' -> selectedCategory = vars.cat_05;
+            case 'f' -> selectedCategory = vars.cat_06;
             default  -> {
                 System.out.println("Invalid question code!"); 
                 return;
