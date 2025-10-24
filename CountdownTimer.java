@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class CountdownTimer {
-    private  boolean answered = false;
+    private static boolean answered = false;
     
-    public  void countDown(int start){
+    public static void countDown(int start){
 
         Scanner s = new Scanner(System.in);
 
@@ -34,7 +34,8 @@ public class CountdownTimer {
     String input =s.nextLine();
    
     answered = true;
-    
+    System.out.println("Du svarde: " + input);
     s.close();
     }
+    
 }

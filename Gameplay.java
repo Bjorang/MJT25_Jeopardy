@@ -7,6 +7,7 @@ public class Gameplay {
     Scanner s = new Scanner(System.in); 
     Variables vars = new Variables();
     
+    private volatile boolean answered = false;
     public void playRound(){
          
         Questions q = new Questions();
