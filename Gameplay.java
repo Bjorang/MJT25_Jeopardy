@@ -132,6 +132,7 @@ int pointsEarned;
             
         }
         if(!answered.get()){
+        System.out.println("");
         System.out.println("Tiden har gått ut");
         System.out.println("");
         
