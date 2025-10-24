@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicBoolean;
 public class Gameplay {
 
@@ -29,14 +29,16 @@ public class Gameplay {
 
         ui.editUI(vars.userIn);
         answered.set(false);
+        Thread timerThread = countDown(10);
         countDown(10);
 
         vars.answer = ui.printQuestion(vars.currentQuestion, s);
 
         answered.set(true);
 
-        userAnswer();
+        //userAnswer();
 
+        userAnswer(timerThread);
         vars.numberOfRounds++;
 
         }
@@ -44,7 +46,13 @@ public class Gameplay {
         endGame();
 
     } 
+/* public void userAnswer(Thread timThread){
+    if (timThread.isAlive()){
+        char questionIndexChar =vars.userIn.charAt(1);
+        int questionIndex = Character.getNumericValue(questionIndexChar) -1;
 
+    }
+} */
     public void userIn(){
         
 
@@ -59,7 +67,8 @@ public class Gameplay {
 
     }
 
-    public void userAnswer(){
+    public void userAnswer(Thread timThread){
+        if (timThread.isAlive()){
        // Poängberäkning, Hämtar värdet i tex 1 i tex A1
 char questionIndexChar = vars.userIn.charAt(1);
 int questionIndex = Character.getNumericValue(questionIndexChar) -1;
@@ -72,13 +81,20 @@ int pointsEarned;
                 
                 
             } else {
-                System.out.println("lol fel!"); 
+                
                 pointsEarned = 0;
+                System.out.println("Fel svar du får " + pointsEarned + " poäng"); 
             }
            scoreTracker.addPoints(pointsEarned);
             System.out.println("Aktuell poängställning " + scoreTracker.getTotalScore());
             
-        }
+        } else{System.out.println("------------------------------------------");
+        System.out.println("Tiden gick ut! Du får 0 poäng.");
+        System.out.println("Tryck Enter för att fortsätta.");
+        System.out.println("------------------------------------------");
+        scoreTracker.addPoints(0);
+        System.out.println("Aktuell poängställning " + scoreTracker.getTotalScore());}
+    }
 
     public void endGame(){
         
@@ -128,13 +144,15 @@ int pointsEarned;
                 
             } catch (InterruptedException e) {
                 System.out.println("");
+                return;
             }
             
         }
         if(!answered.get()){
-        System.out.println("");
+            
+        /* System.out.println("");
         System.out.println("Tiden har gått ut");
-        System.out.println("");
+        System.out.println(""); */
          
                 
         }
