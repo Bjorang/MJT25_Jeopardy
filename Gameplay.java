@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 public class Gameplay {
 
     private Score scoreTracker = new Score();
@@ -6,6 +7,8 @@ public class Gameplay {
         
     Scanner s = new Scanner(System.in); 
     Variables vars = new Variables();
+
+    private AtomicBoolean answered = new AtomicBoolean(false);
     
     public void playRound(){
          
@@ -21,10 +24,15 @@ public class Gameplay {
         userIn(); 
 
         vars.currentQuestion = q.getQuestion(vars.userIn);
+          
 
         ui.editUI(vars.userIn);
+        answered.set(false);
+        Thread timerThread =countDown(10);
 
         vars.answer = ui.printQuestion(vars.currentQuestion, s);
+
+        answered.set(true);
 
         userAnswer();
 
@@ -39,6 +47,7 @@ public class Gameplay {
     } 
 
     public void userIn(){
+        
 
         do {
             vars.userIn = s.next().toLowerCase();
@@ -62,6 +71,7 @@ int pointsEarned;
                 pointsEarned=Variables.storeScore[questionIndex];
                 System.out.println("Korrekt svar, du får "+ pointsEarned+ " poäng!");
                 
+                
             } else {
                 System.out.println("lol fel!"); 
                 pointsEarned = 0;
@@ -69,7 +79,7 @@ int pointsEarned;
            scoreTracker.addPoints(pointsEarned);
             System.out.println("Aktuell poängställning " + scoreTracker.getTotalScore());
 
-           
+         
             
         }
 
@@ -107,14 +117,11 @@ int pointsEarned;
 
     return true;
     }
-   public void countDown(int start){
-        boolean answered = false;
-       
-
+   public Thread countDown(int start){
         Thread cD = new Thread(() ->{
         for (int i = start; i >= 0; i--){
             
-            if (answered){
+            if (answered.get()){
                 return;
             }
             System.out.print("\r Tid kvar: " + i + " Ditt svar: ");
@@ -127,17 +134,14 @@ int pointsEarned;
             }
             
         }
-        if(!answered){
+        if(!answered.get()){
         System.out.println("Tiden har gått ut");
+        System.out.println("");
         System.exit(0);
         }
     });
     cD.start();
-    System.out.println();
-    
-    String input =s.nextLine();
-   
-    //answered = true;
+    return cD;
 
     }
 }
