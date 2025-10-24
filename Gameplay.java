@@ -34,7 +34,7 @@ public class Gameplay {
         
         endGame();
 
-       // s.close();
+       s.close();
 
     } 
 
@@ -69,7 +69,7 @@ int pointsEarned;
            scoreTracker.addPoints(pointsEarned);
             System.out.println("Aktuell poängställning " + scoreTracker.getTotalScore());
 
-            vars.numberOfRounds++;
+           
             
         }
     }
