@@ -129,7 +129,7 @@ int pointsEarned;
         }
         if(!answered){
         System.out.println("Tiden har gått ut");
-        System.exit(0);
+        //System.exit(0);
         }
     });
     cD.start();
