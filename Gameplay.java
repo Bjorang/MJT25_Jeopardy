@@ -3,6 +3,7 @@ public class Gameplay {
     
     Scanner s = new Scanner(System.in); 
     Variables vars = new Variables();
+    Menu menu;
     
     public void playRound(){
          
@@ -28,8 +29,6 @@ public class Gameplay {
         }
         
         endGame();
-
-        s.close();
 
     } 
 
@@ -58,9 +57,9 @@ public class Gameplay {
 
     public void endGame(){
         
-        if (vars.numberOfRounds == 3){
-                System.out.println("nu har du slut på antal rundor"); 
-        }
+        System.out.println("nu har du slut på antal rundor");
+        menu = new Menu(); 
+        menu.launchMenu();
     }
 
     public boolean inputCheck(String input) {

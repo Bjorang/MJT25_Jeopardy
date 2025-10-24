@@ -2,7 +2,7 @@ public class Variables {
     int score;
     int tempScore;
     int numberOfRounds = 0;
-    public int preIndex = 0; 
+    int preIndex = 0; 
     
     String correctAnswer;
     String userInput;
