@@ -28,7 +28,7 @@ public class Gameplay {
 
         ui.editUI(vars.userIn);
         answered.set(false);
-        Thread timerThread =countDown(10);
+        countDown(10);
 
         vars.answer = ui.printQuestion(vars.currentQuestion, s);
 
@@ -78,8 +78,6 @@ int pointsEarned;
             }
            scoreTracker.addPoints(pointsEarned);
             System.out.println("Aktuell poängställning " + scoreTracker.getTotalScore());
-
-         
             
         }
 
@@ -117,7 +115,7 @@ int pointsEarned;
 
     return true;
     }
-   public Thread countDown(int start){
+    public Thread countDown(int start){
         Thread cD = new Thread(() ->{
         for (int i = start; i >= 0; i--){
             
@@ -137,7 +135,7 @@ int pointsEarned;
         if(!answered.get()){
         System.out.println("Tiden har gått ut");
         System.out.println("");
-        System.exit(0);
+        
         }
     });
     cD.start();
