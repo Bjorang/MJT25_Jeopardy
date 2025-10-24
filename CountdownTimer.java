@@ -32,9 +32,7 @@ public class CountdownTimer {
     });
     cD.start();
     System.out.println();
-    
-    String input =s.nextLine();
-   
+
     answered = true;
     System.out.println("Du svarde: " + input);
     s.close();
