@@ -1,23 +1,17 @@
 import java.util.*;
-import java.util.concurrent.atomic.AtomicBoolean;
 public class Gameplay {
 
     private Score scoreTracker = new Score();
         
-        
     Scanner s = new Scanner(System.in); 
     Variables vars = new Variables();
     Menu menu;
-
-    private AtomicBoolean answered = new AtomicBoolean(false);
     
     public void playRound(){
          
         Questions q = new Questions();
         UI ui = new UI();
         
-        
-
         while (vars.numberOfRounds < 3) {
 
         ui.printUI();
@@ -26,14 +20,13 @@ public class Gameplay {
 
         vars.currentQuestion = q.getQuestion(vars.userIn);
           
-
         ui.editUI(vars.userIn);
-        answered.set(false);
+        vars.answered.set(false);
         countDown(10);
 
         vars.answer = ui.printQuestion(vars.currentQuestion, s);
 
-        answered.set(true);
+        vars.answered.set(true);
 
         userAnswer();
 
@@ -47,7 +40,6 @@ public class Gameplay {
 
     public void userIn(){
         
-
         do {
             vars.userIn = s.next().toLowerCase();
             vars.inputOK = inputCheck(vars.userIn);
@@ -112,14 +104,14 @@ public class Gameplay {
     vars.questPre[vars.preIndex] = input;
     vars.preIndex++;
 
-    return true;
-    }
+            return true;
+    } 
 
     public Thread countDown(int start){
         Thread cD = new Thread(() ->{
             for (int i = start; i >= 0; i--){
             
-                if (answered.get()){
+                if (vars.answered.get()){
                     return;
                 }
 
@@ -133,17 +125,17 @@ public class Gameplay {
             }
             
         }
-        if(!answered.get()){
+        if(!vars.answered.get()){
             System.out.println("");
             System.out.println("Tiden har gått ut");
             System.out.println("");       
         }
-        
+
     });
 
         cD.start();
         return cD;
 
     }
-}
 
+}

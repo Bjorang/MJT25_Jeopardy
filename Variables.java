@@ -1,3 +1,5 @@
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public class Variables {
 
     int numberOfRounds = 0;
@@ -16,13 +18,7 @@ public class Variables {
     Boolean inputOK = true;
     Boolean userMenuInBo = true;
     Boolean exit = true;
-    
 
-    
-
-    
-    
-
-    
+    AtomicBoolean answered = new AtomicBoolean(false);
     
 }

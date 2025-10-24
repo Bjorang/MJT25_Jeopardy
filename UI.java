@@ -74,7 +74,6 @@ public class UI {
         public void printUI(){
         
         for (int x = 0 ; x < catt.length; x++) {
-
             for (int y = 0; y < catt[x].length; y++) {
                 System.out.print(catt[x][y]);
             }
