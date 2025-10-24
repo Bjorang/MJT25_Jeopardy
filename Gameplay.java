@@ -4,7 +4,6 @@ public class Gameplay {
 
     private Score scoreTracker = new Score();
         
-        
     Scanner s = new Scanner(System.in); 
     Variables vars = new Variables();
 
@@ -16,8 +15,6 @@ public class Gameplay {
         Questions q = new Questions();
         UI ui = new UI();
         
-        
-
         while (vars.numberOfRounds < 3) {
 
         ui.printUI();
@@ -26,7 +23,6 @@ public class Gameplay {
 
         vars.currentQuestion = q.getQuestion(vars.userIn);
           
-
         ui.editUI(vars.userIn);
         answered.set(false);
         Thread timerThread = countDown(10);
@@ -34,7 +30,7 @@ public class Gameplay {
 
         vars.answer = ui.printQuestion(vars.currentQuestion, s);
 
-        answered.set(true);
+        vars.answered.set(true);
 
         //userAnswer();
 
@@ -55,7 +51,6 @@ public class Gameplay {
 } */
     public void userIn(){
         
-
         do {
             vars.userIn = s.next().toLowerCase();
             vars.inputOK = inputCheck(vars.userIn);
@@ -129,14 +124,14 @@ int pointsEarned;
     vars.questPre[vars.preIndex] = input;
     vars.preIndex++;
 
-    return true;
-    }
+            return true;
+    } 
 
     public Thread countDown(int start){
         Thread cD = new Thread(() ->{
             for (int i = start; i >= 0; i--){
             
-                if (answered.get()){
+                if (vars.answered.get()){
                     return;
                 }
 
@@ -159,12 +154,12 @@ int pointsEarned;
          
                 
         }
-        
+
     });
 
         cD.start();
         return cD;
 
     }
-}
 
+}
