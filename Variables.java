@@ -1,12 +1,11 @@
 public class Variables {
-    int score;
-    int tempScore;
+
     int numberOfRounds = 0;
     int preIndex = 0; 
+    int pointsEarned;
+
+    public static final int[] storeScore = {100,200,400,600,800,1000};
     
-    String correctAnswer;
-    String userInput;
-   public static final int[] storeScore = {100,200,400,600,800,1000}; 
     String userIn = "";
     String answer = "";
 

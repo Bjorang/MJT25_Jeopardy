@@ -75,18 +75,18 @@ int questionIndex = Character.getNumericValue(questionIndexChar) -1;
 int pointsEarned; 
 
             if (vars.answer.equals(vars.currentQuestion[4])) {
-                // hämtar poäng från Array.
-                pointsEarned=Variables.storeScore[questionIndex];
-                System.out.println("Korrekt svar, du får "+ pointsEarned+ " poäng!");
                 
+                vars.pointsEarned=Variables.storeScore[questionIndex];
+                System.out.println("Korrekt svar, du får "+ vars.pointsEarned+ " poäng!");
                 
             } else {
                 
                 pointsEarned = 0;
                 System.out.println("Fel svar du får " + pointsEarned + " poäng"); 
             }
-           scoreTracker.addPoints(pointsEarned);
-            System.out.println("Aktuell poängställning " + scoreTracker.getTotalScore());
+          
+        scoreTracker.addPoints(vars.pointsEarned);
+        System.out.println("Aktuell poängställning " + scoreTracker.getTotalScore());
             
         } else{System.out.println("------------------------------------------");
         System.out.println("Tiden gick ut! Du får 0 poäng.");
@@ -99,6 +99,7 @@ int pointsEarned;
     public void endGame(){
         
         System.out.println("nu har du slut på antal rundor");
+
         menu = new Menu(); 
         menu.launchMenu();
     }
@@ -121,7 +122,7 @@ int pointsEarned;
         for (int i = 0; i < vars.preIndex; i++) {
             if (input.equals(vars.questPre[i])) {
                 System.out.println("Denna frågan har du redan valt!");
-                return false;
+            return false;
             }
         }
 
@@ -130,14 +131,16 @@ int pointsEarned;
 
     return true;
     }
+
     public Thread countDown(int start){
         Thread cD = new Thread(() ->{
-        for (int i = start; i >= 0; i--){
+            for (int i = start; i >= 0; i--){
             
-            if (answered.get()){
-                return;
-            }
-            System.out.print("\r Tid kvar: " + i + " Ditt svar: ");
+                if (answered.get()){
+                    return;
+                }
+
+        System.out.print("\r Tid kvar: " + i + " Ditt svar: ");
             
             try {
                 Thread.sleep(1000);
@@ -156,9 +159,11 @@ int pointsEarned;
          
                 
         }
+        
     });
-    cD.start();
-    return cD;
+
+        cD.start();
+        return cD;
 
     }
 }
