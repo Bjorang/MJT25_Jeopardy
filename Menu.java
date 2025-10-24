@@ -7,7 +7,6 @@ public class Menu {
     UI ui = new UI();
     
     public void launchMenu(){
-        System.err.println(vars.exit);
         
         while (vars.exit){
             ui.printMenuUI();
@@ -22,6 +21,9 @@ public class Menu {
         do { 
         
         String userMenuIn = s.next();
+        System.out.print("\033[1A");
+        System.out.print("");
+        
 
         if (!userMenuIn.matches("[1-4]")) {
                 System.out.println("Ogiltigt menyval!");
@@ -57,7 +59,6 @@ public class Menu {
 
     public void userEx(){
         
-
         vars.exit = false;
         System.out.println(ui.tack);
 
