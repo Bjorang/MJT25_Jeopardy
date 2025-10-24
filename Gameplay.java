@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 public class Gameplay {
 
     private Score scoreTracker = new Score();
@@ -51,7 +51,7 @@ public class Gameplay {
 
     }
 
-    public void userAnswer(){{
+    public void userAnswer(){
        // Poängberäkning, Hämtar värdet i tex 1 i tex A1
 char questionIndexChar = vars.userIn.charAt(1);
 int questionIndex = Character.getNumericValue(questionIndexChar) -1;
@@ -72,7 +72,6 @@ int pointsEarned;
            
             
         }
-    }
 
     public void endGame(){
         
@@ -108,5 +107,38 @@ int pointsEarned;
 
     return true;
     }
+   public void countDown(int start){
+        boolean answered = false;
+       
 
+        Thread cD = new Thread(() ->{
+        for (int i = start; i >= 0; i--){
+            
+            if (answered){
+                return;
+            }
+            System.out.print("\r Tid kvar: " + i + " Ditt svar: ");
+            
+            try {
+                Thread.sleep(1000);
+                
+            } catch (InterruptedException e) {
+                System.out.println("");
+            }
+            
+        }
+        if(!answered){
+        System.out.println("Tiden har gått ut");
+        System.exit(0);
+        }
+    });
+    cD.start();
+    System.out.println();
+    
+    String input =s.nextLine();
+   
+    //answered = true;
+
+    }
 }
+
