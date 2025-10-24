@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class Menu {
-    Scanner s = new Scanner(System.in); 
+    Scanner s = new Scanner(System.in);
+    Variables vars = new Variables(); 
     Gameplay play = new Gameplay(); 
-    Variables vars = new Variables();
     UI ui = new UI();
     
     public void launchMenu(){
