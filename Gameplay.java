@@ -9,6 +9,7 @@ public class Gameplay {
     Variables vars = new Variables();
 
     private AtomicBoolean answered = new AtomicBoolean(false);
+    Menu menu;
     
     public void playRound(){
          
@@ -41,8 +42,6 @@ public class Gameplay {
         }
         
         endGame();
-
-       s.close();
 
     } 
 
@@ -83,9 +82,9 @@ int pointsEarned;
 
     public void endGame(){
         
-        if (vars.numberOfRounds == 3){
-                System.out.println("nu har du slut på antal rundor"); 
-        }
+        System.out.println("nu har du slut på antal rundor");
+        menu = new Menu(); 
+        menu.launchMenu();
     }
 
     public boolean inputCheck(String input) {
