@@ -35,7 +35,7 @@ public class CountdownTimer {
    
     answered = true;
     System.out.println("Du svarde: " + input);
-    s.close();
+   //s.close();
     }
     
 }

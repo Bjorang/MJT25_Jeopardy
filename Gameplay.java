@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 public class Gameplay {
 
     private Score scoreTracker = new Score();
@@ -59,6 +59,7 @@ int questionIndex = Character.getNumericValue(questionIndexChar) -1;
 int pointsEarned; 
 
             if (vars.answer.equals(vars.currentQuestion[4])) {
+                countDown(10);
                 // hämtar poäng från Array.
                 pointsEarned=Variables.storeScore[questionIndex];
                 System.out.println("Korrekt svar, du får "+ pointsEarned+ " poäng!");
@@ -109,34 +110,35 @@ int pointsEarned;
     return true;
     }
    public void countDown(int start){
-        boolean answered = false;
+       // boolean answered = false;
        
-
+    answered = false;
         Thread cD = new Thread(() ->{
         for (int i = start; i >= 0; i--){
             
             if (answered){
                 return;
             }
-            System.out.print("\r Tid kvar: " + i + " Ditt svar: ");
+            System.out.print("\r Tid kvar: " + i + "Svar ");
             
             try {
                 Thread.sleep(1000);
                 
             } catch (InterruptedException e) {
-                System.out.println("");
+                //System.out.println("");
             }
             
         }
         if(!answered){
         System.out.println("Tiden har gått ut");
         //System.exit(0);
+        answered=true;
         }
     });
     cD.start();
     System.out.println();
     
-    String input =s.nextLine();
+    //String input =s.nextLine();
    
     //answered = true;
 
