@@ -1,4 +1,5 @@
 import java.util.Scanner;
+//Lägg in i Userinput-metoden
 
 public class CountdownTimer {
     private static boolean answered = false;
@@ -13,7 +14,7 @@ public class CountdownTimer {
             if (answered){
                 return;
             }
-            System.out.print("\r Tid kvar: " + i + " Ditt svar:");
+            System.out.print("\r Tid kvar: " + i + " Ditt svar: ");
             
             try {
                 Thread.sleep(1000);
@@ -31,11 +32,11 @@ public class CountdownTimer {
     cD.start();
     System.out.println();
     
-    String input =s.nextLine();
+    String input =s.nextLine().toLowerCase();
    
     answered = true;
     System.out.println("Du svarde: " + input);
-    s.close();
+    
     }
         public static void main(String[] args) {
             countDown(10);

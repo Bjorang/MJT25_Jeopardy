@@ -49,6 +49,7 @@ public class Gameplay {
     public void userAnswer(){{
 
         if (vars.answer.equals(vars.currentQuestion[4])) {
+            CountdownTimer.countDown(10);
                 System.out.println("OMFG DU HADE RÄTT!!!");
             } else {
                 System.out.println("lol fel!");

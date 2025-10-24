@@ -72,6 +72,7 @@ public class UI {
         for (int i = 0; i < 4; i++) {
             System.out.println(question[i]);
         }
+        
 
         System.out.print("Svar: ");
         return s.next();
