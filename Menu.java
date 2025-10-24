@@ -60,7 +60,6 @@ public class Menu {
 
         vars.exit = false;
         System.out.println(ui.tack);
-        s.close();
 
     }
 
