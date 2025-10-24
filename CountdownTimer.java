@@ -30,9 +30,7 @@ public class CountdownTimer {
     });
     cD.start();
     System.out.println();
-    
-    String input =s.nextLine();
-   
+
     answered = true;
     
     s.close();
