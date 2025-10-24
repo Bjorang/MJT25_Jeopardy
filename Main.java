@@ -1,8 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-    Gameplay play = new Gameplay();
-    play.playRound(); 
-    
+    Menu menu = new Menu();
+    menu.launchMenu(); 
+        
     
     }
 }
