@@ -34,7 +34,7 @@ public class Gameplay {
         
         endGame();
 
-        s.close();
+       // s.close();
 
     } 
 
@@ -57,7 +57,7 @@ char questionIndexChar = vars.userIn.charAt(1);
 int questionIndex = Character.getNumericValue(questionIndexChar) -1;
 int pointsEarned; 
 
-            if (answer.equals(question[4])) {
+            if (vars.answer.equals(vars.currentQuestion[4])) {
                 // hämtar poäng från Array.
                 pointsEarned=Variables.storeScore[questionIndex];
                 System.out.println("Korrekt svar, du får "+ pointsEarned+ " poäng!");
