@@ -12,8 +12,14 @@ public class Variables {
     String answer = "";
 
     public String[] questPre = new String[36];
-
     public String[] currentQuestion;
+
+    String[][] questRowA = new String[6][5];
+    String[][] questRowB = new String[6][5];
+    String[][] questRowC = new String[6][5];
+    String[][] questRowD = new String[6][5];
+    String[][] questRowE = new String[6][5];
+    String[][] questRowF = new String[6][5];
     
     Boolean inputOK = true;
     Boolean userMenuInBo = true;
