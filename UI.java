@@ -116,7 +116,7 @@ public class UI {
         
         public void printMenuUI(){
             
-            System.out.println(mainMenu);
+            System.out.println(vars.mainMenu);
 
         }
 
