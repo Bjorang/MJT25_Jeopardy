@@ -8,9 +8,6 @@ public class Questions {
     String[][] questRowE = new String[6][5];
     String[][] questRowF = new String[6][5];
 
-
-
-
     public Questions () {
 
         // a1. Animals 100
@@ -272,10 +269,6 @@ public class Questions {
     char category = input.charAt(0);
     int questionIndex = Character.getNumericValue(input.charAt(1)) - 1;
 
-        if (category < 'a' || category > 'f' || questionIndex < 0 || questionIndex >= questRowA.length) {
-            return new String[]{"Wrong Questions Input"}; 
-        }
-
     String[][] selectedCategory;
         switch (category) {
             case 'a' -> selectedCategory = questRowA;
@@ -289,7 +282,6 @@ public class Questions {
                 }
             }
 
-        
         return selectedCategory[questionIndex];
     }
 }
