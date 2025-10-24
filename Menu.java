@@ -61,6 +61,7 @@ public class Menu {
         
         vars.exit = false;
         System.out.println(vars.tack);
+        s.close();
 
     }
 
