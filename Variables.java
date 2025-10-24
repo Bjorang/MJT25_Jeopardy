@@ -14,6 +14,9 @@ public class Variables {
     public String[] currentQuestion;
     
     Boolean inputOK = true;
+    Boolean userMenuInBo = true;
+    Boolean exit = true;
+    
 
     
 
