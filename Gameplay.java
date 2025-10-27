@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicBoolean;
 public class Gameplay {
-    
+    Score scoreTracker = new Score();
     Scanner s = new Scanner(System.in); 
     Variables vars = new Variables();
 
