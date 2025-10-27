@@ -7,11 +7,6 @@ public class UI {
         this.vars = vars;
     }
       
-        public void printMenuUI(){
-            
-            System.out.println(vars.mainMenu);
-
-        }
 
         public void printGridUI(){
         

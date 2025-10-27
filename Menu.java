@@ -14,7 +14,7 @@ public class Menu {
 
     public void launchMenu() {
         ui.clearScreen();
-        ui.printMenuUI();
+        System.out.println(vars.mainMenu);
         userMenuIn();
     }
 
@@ -57,18 +57,18 @@ public class Menu {
     public void userEx() {
        
         ui.clearScreen();
-
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-        }
-
-        System.out.println(vars.tack);
-
-         try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-        }
+        
+            for (int i = 0; i < 2; i++) {
+        
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+            }
+                    if (i==0) {
+                        System.out.println(vars.tack);
+                    }
+            }
+            
         s.close();
         ui.clearScreen();
         System.exit(0);
