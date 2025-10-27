@@ -2,8 +2,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Variables {
 
-//Variables vars;
-
 int numberOfRounds = 0;
 int preIndex = 0; 
 int pointsEarned = 0;
