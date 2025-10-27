@@ -3,7 +3,6 @@ import java.util.*;
 public class Gameplay {
 
     private final Scanner s = new Scanner(System.in);
-    private final Score scoreTracker = new Score();
     private final Variables vars;
     private final UI ui;
     private final Questions q;
@@ -16,35 +15,28 @@ public class Gameplay {
     }
 
     public void playRound() {
-        
-        System.out.print("\033[H\033[0J");
-        System.out.flush();
 
         vars.numberOfRounds = 0;
 
         while (vars.numberOfRounds < 5) {
 
-            ui.printUI();
+            ui.clearScreen();
+            ui.printGridUI();
 
             userIn();
-
             vars.currentQuestion = q.getQuestion(vars.userIn);
+            ui.editGridUI(vars.userIn);
 
-            ui.editUI(vars.userIn);
             vars.answered.set(false);
-            countDown(10);
-
+            countdown(10);
             vars.answer = ui.printQuestion(vars.currentQuestion, s);
-
             vars.answered.set(true);
 
-            Thread timer = countDown(10);
+            Thread timer = countdown(10);
 
             try {
                 timer.join();  
-            } catch (InterruptedException e) {
-                e.printStackTrace();     
-        }
+            } catch (InterruptedException e) {}
 
             userAnswer();
             vars.numberOfRounds++;
@@ -55,6 +47,7 @@ public class Gameplay {
     }
 
     public void userIn() {
+
         do {
             vars.userIn = s.next().toLowerCase();
             vars.inputOK = inputCheck(vars.userIn);
@@ -63,30 +56,6 @@ public class Gameplay {
                 System.out.print("Felaktig input! Vänligen försök igen: ");
             }
         } while (!vars.inputOK);
-    }
-
-    public void userAnswer() {
-        char questionIndexChar = vars.userIn.charAt(1);
-        int questionIndex = Character.getNumericValue(questionIndexChar) - 1;
-
-        if (vars.answer.equals(vars.currentQuestion[4]) && (vars.scoreTime!=0)) {
-            vars.pointsEarned = Variables.storeScore[questionIndex];
-            vars.totalScore += vars.pointsEarned;
-
-            System.out.println();
-            System.out.println("Korrekt svar, du får " + vars.pointsEarned + " poäng!");
-            System.out.println();
-        } else if (vars.scoreTime == 0) {
-            vars.pointsEarned = 0;
-            System.out.println();
-            System.out.println("Tyvärr tog tiden slut! Rätt svar var: " + vars.currentQuestion[4]);
-            System.out.println();
-        } else {
-            vars.pointsEarned = 0;
-            System.out.println();
-            System.out.println("Fel svar! Rätt svar var: " + vars.currentQuestion[4]);
-            System.out.println();
-        } 
     }
 
     public boolean inputCheck(String input) {
@@ -115,36 +84,33 @@ public class Gameplay {
         return true;
     }
 
-    public Thread countDown(int start) {
+    public Thread countdown(int start) {
         Thread cD = new Thread(() -> {
 
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+                try {
+                    Thread.sleep(750);
+                } catch (InterruptedException e) {}
 
             for (int i = start; i >= 0; i--) {
                 
                 if (vars.answered.get()) {
                     return;
                 } else if (i>=0) {
-                    System.out.print("\rTid kvar: " + vars.countdown[i] + " Ditt svar: ");
+                    System.out.print("\rTid kvar: " + vars.countdown[i] + " - Ditt svar: ");
                     vars.scoreTime = i;
                 }
 
                 try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    System.out.println();
-                }
-            }
+                    Thread.sleep(750);
+                } catch (InterruptedException e) {}
+                    
+        }
 
             if (!vars.answered.get()) {
                 vars.scoreTime = 0;
                 System.out.println();
                 System.out.println();
-                System.out.println("Tiden har gått ut");
+                System.out.println("Tiden har gått ut. Tryck 'valfritt tecken + enter'");
                 System.out.println();
             }
         });
@@ -153,8 +119,43 @@ public class Gameplay {
         return cD;
     }
 
+    public void userAnswer() { 
+        char questionIndexChar = vars.userIn.charAt(1);
+        int questionIndex = Character.getNumericValue(questionIndexChar) - 1;
+
+        if (vars.answer.equals(vars.currentQuestion[4]) && (vars.scoreTime!=0)) {
+            vars.pointsEarned = Variables.storeScore[questionIndex];
+            vars.totalScore += vars.pointsEarned;
+
+            System.out.println();
+            System.out.println("Korrekt svar, du får " + vars.pointsEarned + " poäng!");
+            System.out.println();
+        } else if (vars.scoreTime == 0) {
+            vars.pointsEarned = 0;
+            System.out.println();
+            System.out.println("Tyvärr tog tiden slut! Rätt svar var: " + vars.currentQuestion[4]);
+            System.out.println();
+        } else {
+            vars.pointsEarned = 0;
+            System.out.println();
+            System.out.println("Fel svar! Rätt svar var: " + vars.currentQuestion[4]);
+            System.out.println();  
+        } 
+            try {
+                    Thread.sleep(3000);
+                }       catch (InterruptedException e) {}  
+    }
+
     public void endGame() {
+        
+        System.out.println("");
         System.out.println("Nu har du slut på antal rundor!");
+        System.out.println("");
+        System.out.println("Din totala slutpoäng blev: " + vars.totalScore);
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {}
 
         menu = new Menu();
         menu.launchMenu();

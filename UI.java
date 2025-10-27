@@ -1,19 +1,14 @@
 import java.util.Scanner;
 
 public class UI {
+        public static Object ui;
         Variables vars;
-
         public UI(Variables vars) {
         this.vars = vars;
     }
       
-        public void printMenuUI(){
-            
-            System.out.println(vars.mainMenu);
 
-        }
-
-        public void printUI(){
+        public void printGridUI(){
         
         for (int x = 0 ; x < vars.catt.length; x++) {
             for (int y = 0; y < vars.catt[x].length; y++) {
@@ -36,15 +31,15 @@ public class UI {
     
     }
 
-        public void editUI(String input){
+        public void editGridUI(String input){
             
     char category = input.charAt(0);
     int questionIndex = Character.getNumericValue(input.charAt(1)) - 1;
 
-        if (category < 'a' || category > 'f' || questionIndex < 0 || questionIndex >= vars.cat_01.length) {
+      /*   if (category < 'a' || category > 'f' || questionIndex < 0 || questionIndex >= vars.cat_01.length) {
             System.out.println("Wrong UI Input"); 
             return;
-        }
+        } */
 
     String[] selectedCategory;
         switch (category) {
@@ -82,8 +77,9 @@ public class UI {
     }
     
         public void clearScreen() {
-            for (int i = 0; i < 60; i++) {
-                System.out.println();
-        }
+            
+            System.out.print("\033[H\033[0J");
+            System.out.flush();
+    
     }
 }

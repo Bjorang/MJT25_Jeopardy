@@ -13,7 +13,8 @@ public class Menu {
     }
 
     public void launchMenu() {
-        ui.printMenuUI();
+        ui.clearScreen();
+        System.out.println(vars.mainMenu);
         userMenuIn();
     }
 
@@ -38,28 +39,36 @@ public class Menu {
     }
 
     public void userHigh() {
-        clearScreen();
+        ui.clearScreen();
+
         System.out.println("Rekord Test");
         System.out.println("Nuvarande totalpoäng: " + vars.totalScore);
         launchMenu();
     }
 
     public void userRules() {
-        clearScreen();
+        ui.clearScreen();
+
         System.out.println("Spelregler Test");
         launchMenu();
     }
 
     public void userEx() {
-        clearScreen();
-        System.out.println("Tack för att du spelade!");
+       
+        ui.clearScreen();
+        
+            for (int i = 0; i < 2; i++) {
+        
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+            }
+                    if (i==0) {
+                        System.out.println(vars.tack);
+                    }
+            }
         s.close();
+        ui.clearScreen();
         System.exit(0);
-    }
-
-    private void clearScreen() {
-        for (int i = 0; i < 60; i++) {
-            System.out.println();
-        }
     }
 }
