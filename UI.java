@@ -7,7 +7,6 @@ public class UI {
         this.vars = vars;
     }
       
-
         public void printGridUI(){
         
         for (int x = 0 ; x < vars.catt.length; x++) {
@@ -33,31 +32,26 @@ public class UI {
 
         public void editGridUI(String input){
             
-    char category = input.charAt(0);
-    int questionIndex = Character.getNumericValue(input.charAt(1)) - 1;
+        char category = input.charAt(0);
+        int questionIndex = Character.getNumericValue(input.charAt(1)) - 1;
 
-      /*   if (category < 'a' || category > 'f' || questionIndex < 0 || questionIndex >= vars.cat_01.length) {
-            System.out.println("Wrong UI Input"); 
-            return;
-        } */
-
-    String[] selectedCategory;
-        switch (category) {
-            case 'a' -> selectedCategory = vars.cat_01;
-            case 'b' -> selectedCategory = vars.cat_02;
-            case 'c' -> selectedCategory = vars.cat_03;
-            case 'd' -> selectedCategory = vars.cat_04;
-            case 'e' -> selectedCategory = vars.cat_05;
-            case 'f' -> selectedCategory = vars.cat_06;
-            default  -> {
-                System.out.println("Invalid question code!"); 
-                return;
+        String[] selectedCategory;
+            switch (category) {
+                case 'a' -> selectedCategory = vars.cat_01;
+                case 'b' -> selectedCategory = vars.cat_02;
+                case 'c' -> selectedCategory = vars.cat_03;
+                case 'd' -> selectedCategory = vars.cat_04;
+                case 'e' -> selectedCategory = vars.cat_05;
+                case 'f' -> selectedCategory = vars.cat_06;
+                default  -> {
+                    System.out.println("Invalid question code!"); 
+                    return;
+                    }
                 }
-            }
+            
+                selectedCategory[questionIndex] = "[       ]";
         
-            selectedCategory[questionIndex] = "[       ]";
-    
-        }
+            }
 
         public String printQuestion(String[] question, Scanner s) {
         System.out.println("");
@@ -68,8 +62,7 @@ public class UI {
                 System.out.println("");
             } else if (i == 3) {
                 System.out.println("");
-            }
-            
+            }   
         }
 
         System.out.print("Svar: ");
