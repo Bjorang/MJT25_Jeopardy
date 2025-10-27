@@ -2,7 +2,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Variables {
 
-Variables vars;
+//Variables vars;
 
 int numberOfRounds = 0;
 int preIndex = 0; 
@@ -42,7 +42,6 @@ String[] countdown = {" 0", " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9"
 
 Boolean inputOK = true;
 Boolean userMenuInBo = true;
-Boolean exit = true;
 
 AtomicBoolean answered = new AtomicBoolean(false);
 
@@ -89,7 +88,7 @@ String mainMenu = """
 
    String tack = """
 
-   
+
                         ▄▖    ▌   ▐▘▘▘      ▗ ▗    ▌          ▜    ▌  ▌
                         ▐ ▀▌▛▘▙▘  ▜▘▛▌▛▘  ▀▌▜▘▜▘  ▛▌▌▌  ▛▘▛▌█▌▐ ▀▌▛▌█▌▌
                         ▐ █▌▙▖▛▖  ▐ ▙▌▌   █▌▐▖▐▖  ▙▌▙▌  ▄▌▙▌▙▖▐▖█▌▙▌▙▖▖
