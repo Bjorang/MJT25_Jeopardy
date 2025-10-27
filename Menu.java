@@ -57,7 +57,6 @@ public class Menu {
         ui.clearScreen();
 
         System.out.println("Tack för att du spelade!");
-        s.close();
         System.exit(0);
     }
 }

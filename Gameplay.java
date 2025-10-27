@@ -16,37 +16,29 @@ public class Gameplay {
     }
 
     public void playRound() {
-        
-        //System.out.print("\033[H\033[0J");
-        //System.out.flush();
 
         vars.numberOfRounds = 0;
 
         while (vars.numberOfRounds < 5) {
 
             ui.clearScreen();
-
             ui.printGridUI();
 
             userIn();
-
             vars.currentQuestion = q.getQuestion(vars.userIn);
-
             ui.editGridUI(vars.userIn);
+
             vars.answered.set(false);
             countDown(10);
-
             vars.answer = ui.printQuestion(vars.currentQuestion, s);
-
             vars.answered.set(true);
 
             Thread timer = countDown(10);
-
             try {
                 timer.join();  
             } catch (InterruptedException e) {
                 e.printStackTrace();     
-        }
+            }
 
             userAnswer();
             vars.numberOfRounds++;
@@ -57,6 +49,7 @@ public class Gameplay {
     }
 
     public void userIn() {
+
         do {
             vars.userIn = s.next().toLowerCase();
             vars.inputOK = inputCheck(vars.userIn);
@@ -161,7 +154,15 @@ public class Gameplay {
     }
 
     public void endGame() {
+        
+        System.out.println("");
         System.out.println("Nu har du slut på antal rundor!");
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         menu = new Menu();
         menu.launchMenu();
