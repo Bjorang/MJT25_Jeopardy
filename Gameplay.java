@@ -87,6 +87,10 @@ public class Gameplay {
     public Thread countdown(int start) {
         Thread cD = new Thread(() -> {
 
+                try {
+                    Thread.sleep(750);
+                } catch (InterruptedException e) {}
+
             for (int i = start; i >= 0; i--) {
                 
                 if (vars.answered.get()) {

@@ -36,10 +36,10 @@ public class UI {
     char category = input.charAt(0);
     int questionIndex = Character.getNumericValue(input.charAt(1)) - 1;
 
-        if (category < 'a' || category > 'f' || questionIndex < 0 || questionIndex >= vars.cat_01.length) {
+      /*   if (category < 'a' || category > 'f' || questionIndex < 0 || questionIndex >= vars.cat_01.length) {
             System.out.println("Wrong UI Input"); 
             return;
-        }
+        } */
 
     String[] selectedCategory;
         switch (category) {
