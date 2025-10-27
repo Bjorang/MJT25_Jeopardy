@@ -3,7 +3,7 @@ import java.util.*;
 public class Gameplay {
 
     private final Scanner s = new Scanner(System.in);
-    private final Score scoreTracker = new Score();
+    //private final Score scoreTracker = new Score();
     private final Variables vars;
     private final UI ui;
     private final Questions q;
@@ -157,6 +157,8 @@ public class Gameplay {
         
         System.out.println("");
         System.out.println("Nu har du slut på antal rundor!");
+        System.out.println("");
+        System.out.println("Din totala slutpoäng blev: " + vars.totalScore);
 
         try {
             Thread.sleep(5000);

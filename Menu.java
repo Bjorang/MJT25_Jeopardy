@@ -13,6 +13,7 @@ public class Menu {
     }
 
     public void launchMenu() {
+        ui.clearScreen();
         ui.printMenuUI();
         userMenuIn();
     }
@@ -54,9 +55,22 @@ public class Menu {
     }
 
     public void userEx() {
+       
         ui.clearScreen();
 
-        System.out.println("Tack för att du spelade!");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+        }
+
+        System.out.println(vars.tack);
+
+         try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+        }
+        s.close();
+        ui.clearScreen();
         System.exit(0);
     }
 }
