@@ -34,6 +34,7 @@ public class Gameplay {
             vars.answered.set(true);
 
             Thread timer = countDown(10);
+            
             try {
                 timer.join();  
             } catch (InterruptedException e) {
