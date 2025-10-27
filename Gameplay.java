@@ -26,13 +26,13 @@ public class Gameplay {
 
             ui.clearScreen();
 
-            ui.printUI();
+            ui.printGridUI();
 
             userIn();
 
             vars.currentQuestion = q.getQuestion(vars.userIn);
 
-            ui.editUI(vars.userIn);
+            ui.editGridUI(vars.userIn);
             vars.answered.set(false);
             countDown(10);
 
