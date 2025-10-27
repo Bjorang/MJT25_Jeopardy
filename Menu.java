@@ -47,22 +47,17 @@ public class Menu {
     }
 
     public void userRules() {
-        clearScreen();
+        ui.clearScreen();
 
         System.out.println("Spelregler Test");
         launchMenu();
     }
 
     public void userEx() {
-        clearScreen();
+        ui.clearScreen();
 
         System.out.println("Tack för att du spelade!");
         s.close();
         System.exit(0);
     }
-
-    //private void clearScreen() {
-        //System.out.print("\033[H\033[0J");
-      //  System.out.flush();
-    //}
 }
