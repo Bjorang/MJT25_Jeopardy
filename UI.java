@@ -1,7 +1,11 @@
 import java.util.Scanner;
 
 public class UI {
-        Variables vars = new Variables();
+        Variables vars;
+
+        public UI(Variables vars) {
+        this.vars = vars;
+    }
       
         public void printMenuUI(){
             
@@ -24,7 +28,9 @@ public class UI {
             }
             System.out.println("");
         }
-        
+
+        System.out.println("");
+        System.out.println("Aktuell poängställning " + vars.totalScore);
         System.out.println("");
         System.out.print("Välj en fråga (t.ex. a1 - a6): ");
     
@@ -59,10 +65,15 @@ public class UI {
         }
 
         public String printQuestion(String[] question, Scanner s) {
-        System.out.println();
+        System.out.println("");
 
         for (int i = 0; i < 4; i++) {
             System.out.println(question[i]);
+            if (i <= 0) {
+                System.out.println("");
+            } else if (i == 3) {
+                System.out.println("");
+            }
             
         }
 
@@ -70,4 +81,9 @@ public class UI {
         return s.next();
     }
     
+        public void clearScreen() {
+            for (int i = 0; i < 60; i++) {
+                System.out.println();
+        }
+    }
 }
