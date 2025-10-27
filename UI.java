@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class UI {
         Variables vars = new Variables();
 
-        String mainMenu = """
+        /* String mainMenu = """
 
 
                         ▖▖▘▘▜ ▌               ▗ ▘▜ ▜ 
@@ -97,7 +97,7 @@ public class UI {
                         ▐ ▀▌▛▘▙▘  ▜▘▛▌▛▘  ▀▌▜▘▜▘  ▛▌▌▌  ▛▘▛▌█▌▐ ▀▌▛▌█▌▌
                         ▐ █▌▙▖▛▖  ▐ ▙▌▌   █▌▐▖▐▖  ▙▌▙▌  ▄▌▙▌▙▖▐▖█▌▙▌▙▖▖
                                                           ▌            
-            """;
+            """; */
       
         public void printMenuUI(){
             
