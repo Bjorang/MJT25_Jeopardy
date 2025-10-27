@@ -68,7 +68,6 @@ public class Menu {
                         System.out.println(vars.tack);
                     }
             }
-            
         s.close();
         ui.clearScreen();
         System.exit(0);
