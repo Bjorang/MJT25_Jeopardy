@@ -40,7 +40,6 @@ public class Menu {
 
     public void userHigh() {
         ui.clearScreen();
-        ui.printMenuUI();
 
         System.out.println("Rekord Test");
         System.out.println("Nuvarande totalpoäng: " + vars.totalScore);
