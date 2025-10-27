@@ -38,7 +38,9 @@ public class Menu {
     }
 
     public void userHigh() {
-        clearScreen();
+        ui.clearScreen();
+        ui.printMenuUI();
+
         System.out.println("Rekord Test");
         System.out.println("Nuvarande totalpoäng: " + vars.totalScore);
         launchMenu();
@@ -46,20 +48,21 @@ public class Menu {
 
     public void userRules() {
         clearScreen();
+
         System.out.println("Spelregler Test");
         launchMenu();
     }
 
     public void userEx() {
         clearScreen();
+
         System.out.println("Tack för att du spelade!");
         s.close();
         System.exit(0);
     }
 
-    private void clearScreen() {
-        for (int i = 0; i < 60; i++) {
-            System.out.println();
-        }
-    }
+    //private void clearScreen() {
+        //System.out.print("\033[H\033[0J");
+      //  System.out.flush();
+    //}
 }

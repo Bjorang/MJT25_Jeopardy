@@ -1,4 +1,3 @@
-
 public class Questions {
     Variables vars = new Variables();
 

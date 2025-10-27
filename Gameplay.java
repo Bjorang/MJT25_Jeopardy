@@ -17,12 +17,14 @@ public class Gameplay {
 
     public void playRound() {
         
-        System.out.print("\033[H\033[0J");
-        System.out.flush();
+        //System.out.print("\033[H\033[0J");
+        //System.out.flush();
 
         vars.numberOfRounds = 0;
 
         while (vars.numberOfRounds < 5) {
+
+            ui.clearScreen();
 
             ui.printUI();
 
@@ -65,7 +67,7 @@ public class Gameplay {
         } while (!vars.inputOK);
     }
 
-    public void userAnswer() {
+    public void userAnswer() { 
         char questionIndexChar = vars.userIn.charAt(1);
         int questionIndex = Character.getNumericValue(questionIndexChar) - 1;
 
@@ -85,8 +87,13 @@ public class Gameplay {
             vars.pointsEarned = 0;
             System.out.println();
             System.out.println("Fel svar! Rätt svar var: " + vars.currentQuestion[4]);
-            System.out.println();
+            System.out.println();  
         } 
+            try {
+                    Thread.sleep(3000);
+                }       catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
     }
 
     public boolean inputCheck(String input) {
@@ -129,7 +136,7 @@ public class Gameplay {
                 if (vars.answered.get()) {
                     return;
                 } else if (i>=0) {
-                    System.out.print("\rTid kvar: " + vars.countdown[i] + " Ditt svar: ");
+                    System.out.print("\rTid kvar: " + vars.countdown[i] + " - Ditt svar: ");
                     vars.scoreTime = i;
                 }
 
