@@ -8,12 +8,9 @@ public class Menu {
     
     public void launchMenu(){
         
-        while (vars.exit){
             ui.printMenuUI();
             userMenuIn();
-        }
-        
-        s.close();
+
     }
    
     public void userMenuIn(){
@@ -59,9 +56,9 @@ public class Menu {
 
     public void userEx(){
         
-        vars.exit = false;
         System.out.println(vars.tack);
         s.close();
+        System.exit(1);
 
     }
 
