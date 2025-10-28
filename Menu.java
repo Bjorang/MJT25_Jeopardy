@@ -29,7 +29,12 @@ public class Menu {
             }
 
             switch (userMenuIn) {
-                case "1" -> play.playRound();
+                case "1" -> {
+                    s.nextLine();
+                    System.out.println("Ange ditt namn ");
+                    vars.playerOne = s.nextLine().trim();
+                    vars.totalScore = 0;
+                    play.playRound();}
                 case "2" -> userHigh();
                 case "3" -> userRules();
                 case "4" -> userEx();
@@ -40,9 +45,12 @@ public class Menu {
 
     public void userHigh() {
         ui.clearScreen();
+        ScoreBoard sBoard = new ScoreBoard();
+        sBoard.displayHighScore();
 
-        System.out.println("Rekord Test");
-        System.out.println("Nuvarande totalpoäng: " + vars.totalScore);
+        System.out.println("\nTryck på valfri tangent för att återgå till menyn...");
+    s.next();
+        //System.out.println("Nuvarande totalpoäng: " + vars.totalScore);
         launchMenu();
     }
 

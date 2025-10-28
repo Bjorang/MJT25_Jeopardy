@@ -153,6 +153,9 @@ public class Gameplay {
         System.out.println("");
         System.out.println("Din totala slutpoäng blev: " + vars.totalScore);
 
+        ScoreBoard sBoard = new ScoreBoard();
+        sBoard.saveScore(vars.playerOne, vars.totalScore);
+        
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {}
