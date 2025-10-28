@@ -2,11 +2,11 @@ import java.util.*;
 
 public class Gameplay {
 
-    private final Scanner s = new Scanner(System.in);
-    private final Variables vars;
-    private final UI ui;
-    private final Questions q;
-    private Menu menu;
+    Scanner s = new Scanner(System.in);
+    Variables vars;
+    UI ui;
+    Questions q;
+    Menu menu;
 
     public Gameplay(Variables vars) {
         this.vars = vars;
@@ -16,34 +16,30 @@ public class Gameplay {
 
     public void playRound() {
 
-        vars.numberOfRounds = 0;
+        while (vars.numberOfRounds < 6) {
 
-        while (vars.numberOfRounds < 5) {
+            ui.clearScreen(); //Städar terminalen för en ny runda.
+            ui.printGridUI(); //Printar spelplanen.
 
-            ui.clearScreen();
-            ui.printGridUI();
+            userIn(); //Tar in användarens val av fråga och ser till att Stringen är korekt.
+            getDubbelQ(); //Kollar om användaren han chans på dubbel poäng men en slumpgenerator.
 
-            userIn();
-            vars.currentQuestion = q.getQuestion(vars.userIn);
-            ui.editGridUI(vars.userIn);
+            vars.currentQuestion = q.getQuestion(vars.userIn); //Hämtar frågan användaren valt.
+            ui.editGridUI(vars.userIn); //Redigerar bort rutan på spelplanen som användaren valt.
 
-            vars.answered.set(false);
-            countdown(10);
-            vars.answer = ui.printQuestion(vars.currentQuestion, s);
-            vars.answered.set(true);
+            vars.answered.set(false); //Sätter ett falsk värde som Threaden använder för att hålla kolla på spelets countdown timer. 
 
-            Thread timer = countdown(10);
+            countdown(10); //Startar timern för användaren. 
+            
+            vars.answer = ui.printQuestion(vars.currentQuestion, s); //Printar frågan.
+            vars.answered.set(true); //stoppar timern när ett svar kommit.
 
-            try {
-                timer.join();  
-            } catch (InterruptedException e) {}
-
-            userAnswer();
-            vars.numberOfRounds++;
+            userAnswer(); //Rättar svares som användaren matade in och hanterar poängen.
+            vars.numberOfRounds++; //Räknar vilken runda vi är på. 
 
         }
 
-        endGame();
+        endGame(); //Printar ut spelarens slutpoäng, låter användaren skriva in sitt namn på rekordlistan och skickar sedan tillbaka dem till huvudmenyn. 
     }
 
     public void userIn() {
@@ -84,25 +80,48 @@ public class Gameplay {
         return true;
     }
 
+    public void getDubbelQ() {
+
+        vars.randomNum = (int)(Math.random() * 36 + 1); 
+        
+        if (vars.randomNumQ >= 4) {
+             vars.doubbleOrNot = false;
+        } else if (vars.randomNum <= 36) {
+            vars.doubbleOrNot = true;
+            vars.randomNumQ++; 
+            
+        if (vars.doubbleOrNot == true) {
+            System.out.println("");
+            System.out.println("WOW! Denna frågan har dubbel poäng!");
+            System.out.println("");
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {}
+
+            }
+        }   
+    }
+
     public Thread countdown(int start) {
+        
         Thread cD = new Thread(() -> {
 
-                try {
-                    Thread.sleep(750);
-                } catch (InterruptedException e) {}
+            try {
+                Thread.sleep(750);
+            } catch (InterruptedException e) {}
 
             for (int i = start; i >= 0; i--) {
-                
                 if (vars.answered.get()) {
                     return;
-                } else if (i>=0) {
+                } else {
                     System.out.print("\rTid kvar: " + vars.countdown[i] + " - Ditt svar: ");
                     vars.scoreTime = i;
-                }
+                } 
 
-                try {
-                    Thread.sleep(750);
-                } catch (InterruptedException e) {}
+
+            try {
+                Thread.sleep(750);
+            } catch (InterruptedException e) {}
                     
         }
 
@@ -123,23 +142,35 @@ public class Gameplay {
         char questionIndexChar = vars.userIn.charAt(1);
         int questionIndex = Character.getNumericValue(questionIndexChar) - 1;
 
-        if (vars.answer.equals(vars.currentQuestion[4]) && (vars.scoreTime!=0)) {
+        
+        if (vars.answer.equals(vars.currentQuestion[4]) && (vars.scoreTime!=0) && (vars.doubbleOrNot == true)) {
+            vars.pointsEarned = Variables.storeScore[questionIndex];
+            vars.totalScore += vars.pointsEarned * 2;
+
+            System.out.println();
+            System.out.println("Korrekt svar, du får " + vars.pointsEarned * 2 + " poäng!!!");
+            System.out.println();
+
+        } else if (vars.answer.equals(vars.currentQuestion[4]) && (vars.scoreTime!=0)) {
             vars.pointsEarned = Variables.storeScore[questionIndex];
             vars.totalScore += vars.pointsEarned;
 
             System.out.println();
             System.out.println("Korrekt svar, du får " + vars.pointsEarned + " poäng!");
             System.out.println();
+            
         } else if (vars.scoreTime == 0) {
             vars.pointsEarned = 0;
             System.out.println();
             System.out.println("Tyvärr tog tiden slut! Rätt svar var: " + vars.currentQuestion[4]);
             System.out.println();
+
         } else {
             vars.pointsEarned = 0;
             System.out.println();
             System.out.println("Fel svar! Rätt svar var: " + vars.currentQuestion[4]);
             System.out.println();  
+
         } 
             try {
                     Thread.sleep(3000);

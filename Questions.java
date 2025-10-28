@@ -259,23 +259,23 @@ public class Questions {
         
     public String[] getQuestion(String input) {
 
-    char category = input.charAt(0);
-    int questionIndex = Character.getNumericValue(input.charAt(1)) - 1;
+        char category = input.charAt(0);
+        int questionIndex = Character.getNumericValue(input.charAt(1)) - 1;
 
-    String[][] selectedCategory;
-        switch (category) {
-            case 'a' -> selectedCategory = vars.questRowA;
-            case 'b' -> selectedCategory = vars.questRowB;
-            case 'c' -> selectedCategory = vars.questRowC;
-            case 'd' -> selectedCategory = vars.questRowD;
-            case 'e' -> selectedCategory = vars.questRowE;
-            case 'f' -> selectedCategory = vars.questRowF;
-            default  -> {
-                return new String[]{"Invalid Questions Category!"};
+        String[][] selectedCategory;
+            switch (category) {
+                case 'a' -> selectedCategory = vars.questRowA;
+                case 'b' -> selectedCategory = vars.questRowB;
+                case 'c' -> selectedCategory = vars.questRowC;
+                case 'd' -> selectedCategory = vars.questRowD;
+                case 'e' -> selectedCategory = vars.questRowE;
+                case 'f' -> selectedCategory = vars.questRowF;
+                default  -> {
+                    return new String[]{"Invalid Questions Category!"};
+                    }
                 }
-            }
 
-        return selectedCategory[questionIndex];
+            return selectedCategory[questionIndex];
     }
 
 }
