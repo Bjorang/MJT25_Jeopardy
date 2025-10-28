@@ -92,12 +92,12 @@ public class Gameplay {
             vars.randomNumQ++; 
             
         if (vars.doubbleOrNot == true) {
-            System.out.println("");
-            System.out.println("WOW! Denna frågan har dubbel poäng!");
-            System.out.println("");
-            try {
-                Thread.sleep(1500);
-            } catch (InterruptedException e) {}
+        try {
+            System.out.println("\nWOW! Denna frågan har dubbel poäng!\n");
+            Thread.sleep(1500);
+        } catch (InterruptedException ex) {
+        }
+            
 
             }
         }   
