@@ -34,6 +34,7 @@ public class Gameplay {
         }
         
         endGame();
+        
 
     } 
 
@@ -73,7 +74,8 @@ public class Gameplay {
     public void endGame(){
         
         System.out.println("nu har du slut på antal rundor");
-
+        ScoreBoard sBoard = new ScoreBoard();
+        sBoard.runScoreBoard();
         menu = new Menu(); 
         menu.launchMenu();
     }
