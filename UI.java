@@ -1,111 +1,14 @@
 import java.util.Scanner;
 
 public class UI {
-        Variables vars = new Variables();
-
-        /* String mainMenu = """
-
-
-                        ▖▖▘▘▜ ▌               ▗ ▘▜ ▜ 
-                        ▌▌▀▌▐ ▙▘▛▌▛▛▌▛▛▌█▌▛▌  ▜▘▌▐ ▐ 
-                        ▚▘█▌▐▖▛▖▙▌▌▌▌▌▌▌▙▖▌▌  ▐▖▌▐▖▐▖
-                                                
-    ▗▖  ▗▖▗▄▄▄▖▗▖  ▗▖▗▄▄▄▖       ▗▖▗▄▄▄▖ ▗▄▖ ▗▄▄▖  ▗▄▖ ▗▄▄▖ ▗▄▄▄ ▗▖  ▗▖ ▗▖
-    ▐▛▚▞▜▌▐▌   ▐▛▚▞▜▌▐▌          ▐▌▐▌   ▐▌ ▐▌▐▌ ▐▌▐▌ ▐▌▐▌ ▐▌▐▌  █ ▝▚▞▘  ▐▌
-    ▐▌  ▐▌▐▛▀▀▘▐▌  ▐▌▐▛▀▀▘       ▐▌▐▛▀▀▘▐▌ ▐▌▐▛▀▘ ▐▛▀▜▌▐▛▀▚▖▐▌  █  ▐▌   ▐▌
-    ▐▌  ▐▌▐▙▄▄▖▐▌  ▐▌▐▙▄▄▖    ▗▄▄▞▘▐▙▄▄▖▝▚▄▞▘▐▌   ▐▌ ▐▌▐▌ ▐▌▐▙▄▄▀  ▐▌   ▗▖                                                                                           
-                                                                       
-                                                                                                                                   
-                                                           
-                                                            
-        ▖▖▘▘  ▜ ▘          ▘▘▜  ▘       ▌   ▌      ▘▜ ▜     ▘▘     
-        ▌▌▀▌▛▌▐ ▌▛▌█▌▛▌  ▌▌▀▌▐  ▌  ▌▌▀▌▛▌  ▛▌▌▌  ▌▌▌▐ ▐   ▛▌▛▌▛▘▀▌▖
-        ▚▘█▌▌▌▐▖▌▙▌▙▖▌▌  ▚▘█▌▐▖ ▌  ▚▘█▌▙▌  ▙▌▙▌  ▚▘▌▐▖▐▖  ▙▌▙▌▌ █▌▖
-                 ▄▌            ▙▌                         ▄▌       
-                                                            
-                                                        
-                                                                                                
-                            ▗     ▄▖    ▜                                              
-                            ▜     ▚ ▛▌█▌▐ ▀▌                                           
-                            ▟▖▗   ▄▌▙▌▙▖▐▖█▌                                           
-                                    ▌                                                  
-                            ▄▖    ▄▖  ▌      ▌                                         
-                            ▄▌    ▙▘█▌▙▘▛▌▛▘▛▌                                         
-                            ▙▖▗   ▌▌▙▖▛▖▙▌▌ ▙▌                                         
-                                                                                    
-                            ▄▖    ▄▖    ▜       ▜                                      
-                            ▄▌    ▚ ▛▌█▌▐ ▛▘█▌▛▌▐ █▌▛▘                                 
-                            ▄▌▗   ▄▌▙▌▙▖▐▖▌ ▙▖▙▌▐▖▙▖▌                                  
-                                    ▌         ▄▌     
-                            ▖▖    ▄▖    ▜   ▗   
-                            ▙▌    ▌▌▌▌▛▘▐ ▌▌▜▘▀▌
-                             ▌▗   ▛▌▚▘▄▌▐▖▙▌▐▖█▌
-                    
-    """;
-
-
-        String tack = """
-                        ▄▖    ▌   ▐▘▘▘      ▗ ▗    ▌          ▜    ▌  ▌
-                        ▐ ▀▌▛▘▙▘  ▜▘▛▌▛▘  ▀▌▜▘▜▘  ▛▌▌▌  ▛▘▛▌█▌▐ ▀▌▛▌█▌▌
-                        ▐ █▌▙▖▛▖  ▐ ▙▌▌   █▌▐▖▐▖  ▙▌▙▌  ▄▌▙▌▙▖▐▖█▌▙▌▙▖▖
-                                                          ▌            
-            """;
-
-    
-        String mainMenu = """
-
-
-                        ▖▖▘▘▜ ▌               ▗ ▘▜ ▜ 
-                        ▌▌▀▌▐ ▙▘▛▌▛▛▌▛▛▌█▌▛▌  ▜▘▌▐ ▐ 
-                        ▚▘█▌▐▖▛▖▙▌▌▌▌▌▌▌▙▖▌▌  ▐▖▌▐▖▐▖
-                                                
-    ▗▖  ▗▖▗▄▄▄▖▗▖  ▗▖▗▄▄▄▖       ▗▖▗▄▄▄▖ ▗▄▖ ▗▄▄▖  ▗▄▖ ▗▄▄▖ ▗▄▄▄ ▗▖  ▗▖ ▗▖
-    ▐▛▚▞▜▌▐▌   ▐▛▚▞▜▌▐▌          ▐▌▐▌   ▐▌ ▐▌▐▌ ▐▌▐▌ ▐▌▐▌ ▐▌▐▌  █ ▝▚▞▘  ▐▌
-    ▐▌  ▐▌▐▛▀▀▘▐▌  ▐▌▐▛▀▀▘       ▐▌▐▛▀▀▘▐▌ ▐▌▐▛▀▘ ▐▛▀▜▌▐▛▀▚▖▐▌  █  ▐▌   ▐▌
-    ▐▌  ▐▌▐▙▄▄▖▐▌  ▐▌▐▙▄▄▖    ▗▄▄▞▘▐▙▄▄▖▝▚▄▞▘▐▌   ▐▌ ▐▌▐▌ ▐▌▐▙▄▄▀  ▐▌   ▗▖                                                                                           
-                                                                       
-                                                                                                                                   
-                                                           
-                                                            
-        ▖▖▘▘  ▜ ▘          ▘▘▜  ▘       ▌   ▌      ▘▜ ▜     ▘▘     
-        ▌▌▀▌▛▌▐ ▌▛▌█▌▛▌  ▌▌▀▌▐  ▌  ▌▌▀▌▛▌  ▛▌▌▌  ▌▌▌▐ ▐   ▛▌▛▌▛▘▀▌▖
-        ▚▘█▌▌▌▐▖▌▙▌▙▖▌▌  ▚▘█▌▐▖ ▌  ▚▘█▌▙▌  ▙▌▙▌  ▚▘▌▐▖▐▖  ▙▌▙▌▌ █▌▖
-                 ▄▌            ▙▌                         ▄▌       
-                                                            
-                                                        
-                                                                                                
-                            ▗     ▄▖    ▜                                              
-                            ▜     ▚ ▛▌█▌▐ ▀▌                                           
-                            ▟▖▗   ▄▌▙▌▙▖▐▖█▌                                           
-                                    ▌                                                  
-                            ▄▖    ▄▖  ▌      ▌                                         
-                            ▄▌    ▙▘█▌▙▘▛▌▛▘▛▌                                         
-                            ▙▖▗   ▌▌▙▖▛▖▙▌▌ ▙▌                                         
-                                                                                    
-                            ▄▖    ▄▖    ▜       ▜                                      
-                            ▄▌    ▚ ▛▌█▌▐ ▛▘█▌▛▌▐ █▌▛▘                                 
-                            ▄▌▗   ▄▌▙▌▙▖▐▖▌ ▙▖▙▌▐▖▙▖▌                                  
-                                    ▌         ▄▌     
-                            ▖▖    ▄▖    ▜   ▗   
-                            ▙▌    ▌▌▌▌▛▘▐ ▌▌▜▘▀▌
-                             ▌▗   ▛▌▚▘▄▌▐▖▙▌▐▖█▌
-                    
-    """;
-
-        String tack = """
-                        ▄▖    ▌   ▐▘▘▘      ▗ ▗    ▌          ▜    ▌  ▌
-                        ▐ ▀▌▛▘▙▘  ▜▘▛▌▛▘  ▀▌▜▘▜▘  ▛▌▌▌  ▛▘▛▌█▌▐ ▀▌▛▌█▌▌
-                        ▐ █▌▙▖▛▖  ▐ ▙▌▌   █▌▐▖▐▖  ▙▌▙▌  ▄▌▙▌▙▖▐▖█▌▙▌▙▖▖
-                                                          ▌            
-            """; */
+        public static Object ui;
+        Variables vars;
+        public UI(Variables vars) {
+        this.vars = vars;
+    }
       
-        public void printMenuUI(){
-            
-            System.out.println(vars.mainMenu);
 
-        }
-
-        public void printUI(){
+        public void printGridUI(){
         
         for (int x = 0 ; x < vars.catt.length; x++) {
             for (int y = 0; y < vars.catt[x].length; y++) {
@@ -120,21 +23,23 @@ public class UI {
             }
             System.out.println("");
         }
-        
+
+        System.out.println("");
+        System.out.println("Aktuell poängställning " + vars.totalScore);
         System.out.println("");
         System.out.print("Välj en fråga (t.ex. a1 - a6): ");
     
     }
 
-        public void editUI(String input){
+        public void editGridUI(String input){
             
     char category = input.charAt(0);
     int questionIndex = Character.getNumericValue(input.charAt(1)) - 1;
 
-        if (category < 'a' || category > 'f' || questionIndex < 0 || questionIndex >= vars.cat_01.length) {
+      /*   if (category < 'a' || category > 'f' || questionIndex < 0 || questionIndex >= vars.cat_01.length) {
             System.out.println("Wrong UI Input"); 
             return;
-        }
+        } */
 
     String[] selectedCategory;
         switch (category) {
@@ -155,10 +60,15 @@ public class UI {
         }
 
         public String printQuestion(String[] question, Scanner s) {
-        System.out.println();
+        System.out.println("");
 
         for (int i = 0; i < 4; i++) {
             System.out.println(question[i]);
+            if (i <= 0) {
+                System.out.println("");
+            } else if (i == 3) {
+                System.out.println("");
+            }
             
         }
 
@@ -166,4 +76,10 @@ public class UI {
         return s.next();
     }
     
+        public void clearScreen() {
+            
+            System.out.print("\033[H\033[0J");
+            System.out.flush();
+    
+    }
 }
