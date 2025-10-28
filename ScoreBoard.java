@@ -2,19 +2,27 @@ import java.util.*;
 import java.io.*;
 
 public class ScoreBoard {
-    Variables vars;
+    private Variables vars;
+    List <String> list = new ArrayList<>();
+    Scanner s = new Scanner(System.in);
     
     private static final String highScorePole = "highScorePole.txt";
+
+    public ScoreBoard(Variables vars) {
+        this.vars = vars;
+    }
     
     public void runScoreBoard(){
     
-    Scanner s = new Scanner(System.in);
+    
+    System.out.println("Skriv in ditt namn");
     String playerOne = s.nextLine();
     int finalScore = vars.totalScore;
     
+    
     System.out.println(finalScore + playerOne);
 
-    List <String> list = new ArrayList<>();
+    
 
     try {
         Scanner fileReader = new Scanner (new File(highScorePole));
@@ -39,20 +47,27 @@ public class ScoreBoard {
     } catch (IOException e) {
         System.out.println("Ops, något blev fel vid inmatning till filen");
     }
-
-    System.out.println("====Highscore over time====");
-    for(int i = 0; i < Math.min(3, list.size()); i++){
-        System.out.println((i + 1)+ ". "+ list.get(i).replace(":", "-"));
-    }
+    
+    showHighScore();
 
     boolean topTre = false;
     for (int i = 0; i < Math.min(3, list.size()); i++){
         if(list.get(i).startsWith(playerOne + ":")) topTre =true;
-    }
-    if (topTre) System.out.println("Grattis " + playerOne + "! Ditt score tar dig till top 3!");
+        
 
     else System.out.println("Tyvärr ditt scorer tar dig inte till top 3 på listan");
-    s.close();
+    
     }
+   
+    public void showHighScore(){
+        
+        System.out.println("====Highscore over time====");
 
+    for (int i = 0; i < Math.min(3, list.size()); i++){
+        System.out.println((i + 1)+ ". "+ list.get(i).replace(":", "-"));
+        System.out.println("Tryck enter för att återgå");
+        String x = s.nextLine();
+    }
+    
+    }
 }

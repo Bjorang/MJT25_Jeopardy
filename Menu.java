@@ -5,11 +5,14 @@ public class Menu {
     private final Variables vars;
     private final Gameplay play;
     private final UI ui;
+    private ScoreBoard scoreboard;
 
     public Menu() {
         this.vars = new Variables();
         this.ui = new UI(vars);
         this.play = new Gameplay(vars);
+        this.scoreboard = new ScoreBoard(vars);
+        
     }
 
     public void launchMenu() {
@@ -40,10 +43,10 @@ public class Menu {
 
     public void userHigh() {
         ui.clearScreen();
-
-        System.out.println("Rekord Test");
-        System.out.println("Nuvarande totalpoäng: " + vars.totalScore);
-        launchMenu();
+        scoreboard.showHighScore();
+        //System.out.println("Rekord Test");
+        //System.out.println("Nuvarande totalpoäng: " + vars.totalScore);
+        //launchMenu();
     }
 
     public void userRules() {

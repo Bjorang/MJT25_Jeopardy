@@ -1,2 +1,8 @@
+:100
+:100
+Peter:100
+Peter:100
+Peter:100
 :0
 :0
+Peter:0

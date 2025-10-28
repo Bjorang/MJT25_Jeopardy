@@ -7,18 +7,20 @@ public class Gameplay {
     private final UI ui;
     private final Questions q;
     private Menu menu;
+    private ScoreBoard scoreboard;
 
     public Gameplay(Variables vars) {
         this.vars = vars;
         this.ui = new UI(vars); 
         this.q = new Questions();
+        this.scoreboard = new ScoreBoard(vars);
     }
 
     public void playRound() {
 
         vars.numberOfRounds = 0;
 
-        while (vars.numberOfRounds < 5) {
+        while (vars.numberOfRounds < 1) {
 
             ui.clearScreen();
             ui.printGridUI();
@@ -152,6 +154,7 @@ public class Gameplay {
         System.out.println("Nu har du slut på antal rundor!");
         System.out.println("");
         System.out.println("Din totala slutpoäng blev: " + vars.totalScore);
+        scoreboard.runScoreBoard();
 
         try {
             Thread.sleep(5000);
