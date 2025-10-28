@@ -21,11 +21,11 @@ public class Gameplay {
             ui.clearScreen(); //Städar terminalen för en ny runda.
             ui.printGridUI(); //Printar spelplanen.
 
-            userIn(); //Tar in användarens val av fråga och ser till att Stringen är korekt.
-            getDubbelQ(); //Kollar om användaren han chans på dubbel poäng men en slumpgenerator.
+            userInput(); //Tar in användarens val av fråga och ser till att Stringen är korekt.
+            isDouble(); //Kollar om användaren han chans på dubbel poäng men en slumpgenerator.
 
-            vars.currentQuestion = q.getQuestion(vars.userIn); //Hämtar frågan användaren valt.
-            ui.editGridUI(vars.userIn); //Redigerar bort rutan på spelplanen som användaren valt.
+            vars.currentQuestion = q.getQuestion(vars.userInput); //Hämtar frågan användaren valt.
+            ui.editGridUI(vars.userInput); //Redigerar bort rutan på spelplanen som användaren valt.
 
             vars.answered.set(false); //Sätter ett falsk värde som Threaden använder för att hålla kolla på spelets countdown timer. 
 
@@ -35,18 +35,18 @@ public class Gameplay {
             vars.answered.set(true); //stoppar timern när ett svar kommit.
 
             userAnswer(); //Rättar svares som användaren matade in och hanterar poängen.
-            vars.numberOfRounds++; //Räknar vilken runda vi är på. 
+            vars.numberOfRounds++; //Räknar vilken runda vi är på.
 
         }
 
         endGame(); //Printar ut spelarens slutpoäng, låter användaren skriva in sitt namn på rekordlistan och skickar sedan tillbaka dem till huvudmenyn. 
     }
 
-    public void userIn() {
+    public void userInput() {
 
         do {
-            vars.userIn = s.next().toLowerCase();
-            vars.inputOK = inputCheck(vars.userIn);
+            vars.userInput = s.next().toLowerCase();
+            vars.inputOK = checkInput(vars.userInput);
 
             if (!vars.inputOK) {
                 System.out.print("Felaktig input! Vänligen försök igen: ");
@@ -54,7 +54,7 @@ public class Gameplay {
         } while (!vars.inputOK);
     }
 
-    public boolean inputCheck(String input) {
+    public boolean checkInput(String input) {
         if (input.length() < 2) {
             return false;
         }
@@ -80,13 +80,14 @@ public class Gameplay {
         return true;
     }
 
-    public void getDubbelQ() {
+    public void isDouble() {
 
+        vars.doubbleOrNot = false;
         vars.randomNum = (int)(Math.random() * 36 + 1); 
         
         if (vars.randomNumQ >= 4) {
-             vars.doubbleOrNot = false;
-        } else if (vars.randomNum <= 36) {
+            vars.doubbleOrNot = false;
+        } else if (vars.randomNum <= 12) {
             vars.doubbleOrNot = true;
             vars.randomNumQ++; 
             
@@ -139,7 +140,7 @@ public class Gameplay {
     }
 
     public void userAnswer() { 
-        char questionIndexChar = vars.userIn.charAt(1);
+        char questionIndexChar = vars.userInput.charAt(1);
         int questionIndex = Character.getNumericValue(questionIndexChar) - 1;
 
         

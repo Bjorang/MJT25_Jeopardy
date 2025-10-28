@@ -12,7 +12,7 @@ public class Variables {
 
     public static final int[] storeScore = {100,200,400,600,800,1000};
 
-    String userIn = "";
+    String userInput = "";
     String answer = "";
 
     public String[] questPre = new String[36];
