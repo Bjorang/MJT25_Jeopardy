@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
 public class Menu {
-    private final Scanner s = new Scanner(System.in);
-    private final Variables vars;
-    private final Gameplay play;
-    private final UI ui;
+    Scanner s = new Scanner(System.in);
+    Variables vars;
+    Gameplay play;
+    UI ui;
 
     public Menu() {
         this.vars = new Variables();
