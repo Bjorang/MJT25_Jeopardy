@@ -92,18 +92,18 @@ public class Gameplay {
             vars.randomNumQ++; 
             
         if (vars.doubbleOrNot == true) {
-            System.out.println("");
-            System.out.println("WOW! Denna frågan har dubbel poäng!");
-            System.out.println("");
-            try {
-                Thread.sleep(1500);
-            } catch (InterruptedException e) {}
+        try {
+            System.out.println("\nWOW! Denna frågan har dubbel poäng!\n");
+            Thread.sleep(1500);
+        } catch (InterruptedException ex) {
+        }
+            
 
             }
         }   
     }
 
-    public Thread countdown(int start) {
+    public Thread countdown (int start) {
         
         Thread cD = new Thread(() -> {
 
@@ -143,39 +143,28 @@ public class Gameplay {
         char questionIndexChar = vars.userInput.charAt(1);
         int questionIndex = Character.getNumericValue(questionIndexChar) - 1;
 
-        
         if (vars.answer.equals(vars.currentQuestion[4]) && (vars.scoreTime!=0) && (vars.doubbleOrNot == true)) {
             vars.pointsEarned = Variables.storeScore[questionIndex];
             vars.totalScore += vars.pointsEarned * 2;
-
-            System.out.println();
-            System.out.println("Korrekt svar, du får " + vars.pointsEarned * 2 + " poäng!!!");
-            System.out.println();
+            System.out.println("\nKorrekt svar, du får " + vars.pointsEarned * 2 + " poäng!!!\n");
 
         } else if (vars.answer.equals(vars.currentQuestion[4]) && (vars.scoreTime!=0)) {
             vars.pointsEarned = Variables.storeScore[questionIndex];
             vars.totalScore += vars.pointsEarned;
+            System.out.println("\nKorrekt svar, du får " + vars.pointsEarned + " poäng!\n");
 
-            System.out.println();
-            System.out.println("Korrekt svar, du får " + vars.pointsEarned + " poäng!");
-            System.out.println();
-            
         } else if (vars.scoreTime == 0) {
             vars.pointsEarned = 0;
-            System.out.println();
-            System.out.println("Tyvärr tog tiden slut! Rätt svar var: " + vars.currentQuestion[4]);
-            System.out.println();
+            System.out.println("\nTyvärr tog tiden slut! Rätt svar var: " + vars.currentQuestion[4] + "\n");
 
         } else {
             vars.pointsEarned = 0;
-            System.out.println();
-            System.out.println("Fel svar! Rätt svar var: " + vars.currentQuestion[4]);
-            System.out.println();  
+            System.out.println("\nFel svar! Rätt svar var: " + vars.currentQuestion[4] + "\n"); 
+             
+        } try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {}
 
-        } 
-            try {
-                    Thread.sleep(3000);
-                }       catch (InterruptedException e) {}  
     }
 
     public void endGame() {
