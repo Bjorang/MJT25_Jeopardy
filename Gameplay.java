@@ -1,53 +1,45 @@
 import java.util.*;
-import java.util.concurrent.atomic.AtomicBoolean;
 public class Gameplay {
-
-    private Score scoreTracker = new Score();
-        
-        
+    
     Scanner s = new Scanner(System.in); 
     Variables vars = new Variables();
+    private Score scoreTracker = new Score();   
     Menu menu;
-
-    private AtomicBoolean answered = new AtomicBoolean(false);
     
     public void playRound(){
          
         Questions q = new Questions();
         UI ui = new UI();
         
-        
-
         while (vars.numberOfRounds < 3) {
 
-        ui.printUI();
+            ui.printUI();
 
-        userIn(); 
+            userIn(); 
 
-        vars.currentQuestion = q.getQuestion(vars.userIn);
-          
+            vars.currentQuestion = q.getQuestion(vars.userIn);
+            
+            ui.editUI(vars.userIn);
+            vars.answered.set(false);
+            countDown(10);
 
-        ui.editUI(vars.userIn);
-        answered.set(false);
-        countDown(10);
+            vars.answer = ui.printQuestion(vars.currentQuestion, s);
 
-        vars.answer = ui.printQuestion(vars.currentQuestion, s);
+            vars.answered.set(true);
 
-        answered.set(true);
+            userAnswer();
 
-        userAnswer();
-
-        vars.numberOfRounds++;
+            vars.numberOfRounds++;
 
         }
         
         endGame();
+        
 
     } 
 
     public void userIn(){
         
-
         do {
             vars.userIn = s.next().toLowerCase();
             vars.inputOK = inputCheck(vars.userIn);
@@ -60,29 +52,30 @@ public class Gameplay {
     }
 
     public void userAnswer(){
-       // Poängberäkning, Hämtar värdet i tex 1 i tex A1
-char questionIndexChar = vars.userIn.charAt(1);
-int questionIndex = Character.getNumericValue(questionIndexChar) -1;
-int pointsEarned; 
+       
+        char questionIndexChar = vars.userIn.charAt(1);
+        int questionIndex = Character.getNumericValue(questionIndexChar) -1;
 
             if (vars.answer.equals(vars.currentQuestion[4])) {
-                // hämtar poäng från Array.
-                pointsEarned=Variables.storeScore[questionIndex];
-                System.out.println("Korrekt svar, du får "+ pointsEarned+ " poäng!");
                 
+                vars.pointsEarned=Variables.storeScore[questionIndex];
+                System.out.println("Korrekt svar, du får "+ vars.pointsEarned+ " poäng!");
                 
             } else {
                 System.out.println("lol fel!"); 
-                pointsEarned = 0;
+                vars.pointsEarned = 0;
             }
-           scoreTracker.addPoints(pointsEarned);
-            System.out.println("Aktuell poängställning " + scoreTracker.getTotalScore());
+          
+        scoreTracker.addPoints(vars.pointsEarned);
+        System.out.println("Aktuell poängställning " + scoreTracker.getTotalScore());
             
         }
 
     public void endGame(){
         
         System.out.println("nu har du slut på antal rundor");
+        ScoreBoard sBoard = new ScoreBoard();
+        sBoard.runScoreBoard();
         menu = new Menu(); 
         menu.launchMenu();
     }
@@ -105,23 +98,26 @@ int pointsEarned;
         for (int i = 0; i < vars.preIndex; i++) {
             if (input.equals(vars.questPre[i])) {
                 System.out.println("Denna frågan har du redan valt!");
-                return false;
+            return false;
             }
         }
 
     vars.questPre[vars.preIndex] = input;
     vars.preIndex++;
 
-    return true;
-    }
+            return true;
+    } 
+
     public Thread countDown(int start){
+        
         Thread cD = new Thread(() ->{
-        for (int i = start; i >= 0; i--){
+            for (int i = start; i >= 0; i--){
             
-            if (answered.get()){
-                return;
-            }
-            System.out.print("\r Tid kvar: " + i + " Ditt svar: ");
+                if (vars.answered.get()){
+                    return;
+                }
+
+        System.out.print("\r Tid kvar: " + i + " Ditt svar: ");
             
             try {
                 Thread.sleep(1000);
@@ -131,17 +127,17 @@ int pointsEarned;
             }
             
         }
-        if(!answered.get()){
-        System.out.println("");
-        System.out.println("Tiden har gått ut");
-        System.out.println("");
-         
-                
+        if(!vars.answered.get()){
+            System.out.println("");
+            System.out.println("Tiden har gått ut");
+            System.out.println("");       
         }
+
     });
-    cD.start();
-    return cD;
+
+        cD.start();
+        return cD;
 
     }
-}
 
+}

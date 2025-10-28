@@ -1,19 +1,16 @@
 import java.util.Scanner;
 
 public class Menu {
-    Scanner s = new Scanner(System.in); 
+    Scanner s = new Scanner(System.in);
+    Variables vars = new Variables(); 
     Gameplay play = new Gameplay(); 
-    Variables vars = new Variables();
     UI ui = new UI();
     
     public void launchMenu(){
         
-        while (vars.exit){
             ui.printMenuUI();
             userMenuIn();
-        }
-        
-        s.close();
+
     }
    
     public void userMenuIn(){
@@ -59,8 +56,9 @@ public class Menu {
 
     public void userEx(){
         
-        vars.exit = false;
-        System.out.println(ui.tack);
+        System.out.println(vars.tack);
+        s.close();
+        System.exit(1);
 
     }
 
