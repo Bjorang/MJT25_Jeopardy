@@ -5,7 +5,7 @@ public class ScoreBoard {
     
     private static final String highScorePole = "highScorePole.txt";
     
-    public void runScoreBoard(Object getTotalScore){
+    public void runScoreBoard(){
     
     Scanner s = new Scanner(System.in);
     String playerOne = s.nextLine();
