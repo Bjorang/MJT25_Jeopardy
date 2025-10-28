@@ -80,13 +80,14 @@ public class Gameplay {
         return true;
     }
 
-    public void getDubbelQ() {
+    public void isDouble() {
 
+        vars.doubbleOrNot = false;
         vars.randomNum = (int)(Math.random() * 36 + 1); 
         
         if (vars.randomNumQ >= 4) {
-             vars.doubbleOrNot = false;
-        } else if (vars.randomNum <= 36) {
+            vars.doubbleOrNot = false;
+        } else if (vars.randomNum <= 12) {
             vars.doubbleOrNot = true;
             vars.randomNumQ++; 
             
