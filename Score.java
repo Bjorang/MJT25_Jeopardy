@@ -10,4 +10,9 @@ public class Score {
         return totalScore;
     }
 
+public  void scorePoints(){
+    System.out.println(getTotalScore());
+
+}
+
 }
