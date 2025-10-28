@@ -80,6 +80,28 @@ public class Gameplay {
         return true;
     }
 
+    public void getDubbelQ() {
+
+        vars.randomNum = (int)(Math.random() * 36 + 1); 
+        
+        if (vars.randomNumQ >= 4) {
+             vars.doubbleOrNot = false;
+        } else if (vars.randomNum <= 36) {
+            vars.doubbleOrNot = true;
+            vars.randomNumQ++; 
+            
+        if (vars.doubbleOrNot == true) {
+            System.out.println("");
+            System.out.println("WOW! Denna frågan har dubbel poäng!");
+            System.out.println("");
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {}
+
+            }
+        }   
+    }
+
     public void isDouble() {
 
         vars.doubbleOrNot = false;
