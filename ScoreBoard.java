@@ -2,6 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class ScoreBoard {
+    Variables vars;
     
     private static final String highScorePole = "highScorePole.txt";
     
@@ -9,8 +10,7 @@ public class ScoreBoard {
     
     Scanner s = new Scanner(System.in);
     String playerOne = s.nextLine();
-    Score score = new Score();
-    int finalScore = score.getTotalScore();
+    int finalScore = vars.totalScore;
     
     System.out.println(finalScore + playerOne);
 
