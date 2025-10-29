@@ -47,6 +47,7 @@ String userInput = "";
 
     AtomicBoolean answered = new AtomicBoolean(false);
 
+    String space = " ";
     String mainMenu = """
 
     - Välkommen till MEME JEOPARDY! -
@@ -56,8 +57,7 @@ String userInput = "";
     3. Regler
     4. Avsluta
 
-    Välj önskat menyval följt av enter:                                                    
-     """;
+    Välj önskat menyval följt av enter:""";
 
     String tack = """
     Tack för att du spelade!

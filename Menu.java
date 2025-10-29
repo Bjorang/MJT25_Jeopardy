@@ -14,7 +14,7 @@ public class Menu {
 
     public void launchMenu() {
         ui.clearScreen();
-        System.out.println(vars.mainMenu);
+        System.out.print(vars.mainMenu + vars.space);
         userMenuIn();
     }
 
