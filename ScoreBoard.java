@@ -63,15 +63,15 @@ public class ScoreBoard {
         }
 
         if (currentPlayer != null) {
-            boolean topTre = false;
+            boolean topFive = false;
             for (int i = 0; i < Math.min(3, list.size()); i++) {
                 if (list.get(i).startsWith(currentPlayer + ":")) {
-                    topTre = true;
+                    topFive = true;
                     break;
                 }
             }
-            if (topTre) {
-                System.out.println("\nGrattis " + currentPlayer + "! Ditt score tog dig till top 3!");
+            if (topFive) {
+                System.out.println("\nGrattis " + currentPlayer + "! Ditt score tog dig till top 5!");
             } else {
                 System.out.println("\nTyvärr ditt score tar dig inte till top 5 på listan");
             }
