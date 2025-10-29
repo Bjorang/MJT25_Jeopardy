@@ -73,7 +73,7 @@ public class ScoreBoard {
             if (topTre) {
                 System.out.println("\nGrattis " + currentPlayer + "! Ditt score tog dig till top 3!");
             } else {
-                System.out.println("\nTyvärr ditt score tar dig inte till top 3 på listan");
+                System.out.println("\nTyvärr ditt score tar dig inte till top 5 på listan");
             }
         }
 
