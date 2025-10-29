@@ -1,4 +1,5 @@
 Anders:4200
+Magnus Härrenstam:3900
 Anders:3400
 Anders:2200
 Anders:1800
