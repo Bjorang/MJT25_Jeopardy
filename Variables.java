@@ -15,6 +15,7 @@ public class Variables {
 String userIn = "";
 String answer = "";
 String playerOne ="";
+String userInput = "";
 
     public String[] questPre = new String[36];
     public String[] currentQuestion;
