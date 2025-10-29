@@ -93,7 +93,7 @@ public class Gameplay {
             
         if (vars.doubbleOrNot == true) {
         try {
-            System.out.println("\nWOW! Denna frågan har dubbel poäng!\n");
+            System.out.println("\nWOW! Denna frågan har dubbel poäng!");
             Thread.sleep(1500);
         } catch (InterruptedException ex) {
         }
