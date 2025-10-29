@@ -45,6 +45,7 @@ public class Variables {
 
     AtomicBoolean answered = new AtomicBoolean(false);
 
+    String space = " ";
     String mainMenu = """
 
     - Välkommen till MEME JEOPARDY! -
@@ -54,8 +55,7 @@ public class Variables {
     3. Regler
     4. Avsluta
 
-    Välj önskat menyval följt av enter:                                                    
-     """;
+    Välj önskat menyval följt av enter:""";
 
     String tack = """
     Tack för att du spelade!
