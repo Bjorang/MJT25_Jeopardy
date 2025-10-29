@@ -57,7 +57,8 @@ public class Menu {
     public void userRules() {
         ui.clearScreen();
 
-        System.out.println("Spelregler Test");
+        System.out.println(vars.rules);
+        s.next();
         launchMenu();
     }
 

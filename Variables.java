@@ -59,14 +59,26 @@ String userInput = "";
 
     Välj önskat menyval följt av enter:""";
 
+    String rules = """
+    Som spelare kommer du få upp en spelplan med olika kategorier samt vad frågan är värd för poäng. 
+    
+    Du väljer fråga genom att skriva in kategoriernas bokstav följt av 
+    frågans tillhörande siffra till exempel 'a1'. 
+    Efter ditt val kommer frågan visas och du har 10 sek på dig att svara. 
+    Det finns också 4 frågor med dubbel poäng gömda på spelplanen.
+
+    Spelet spelas i rundor och du kommer totalt att svara på 10 frågor under ditt spel.
+    Om du får tillräckligt bra poäng får du också skriva in ditt namn på rekordsidan!
+
+    Lycka till!
+
+    Tryck valfritt tecken + enter för att återgå till huvudmenyn:""";
+
     String tack = """
     Tack för att du spelade!
     
     Anders Björäng
     Elizabeth Malm
-    Peter Janstad  
-                   
+    Peter Janstad""";
     
-    """;
-
 }
