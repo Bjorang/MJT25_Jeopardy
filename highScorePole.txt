@@ -1,8 +1,12 @@
+Olle:5600
+Greger:4900
 Anders:4200
+Nisse:4200
 Magnus Härrenstam:3900
 Anders:3400
 Anders:2200
 Anders:1800
+Ture:1000
 Anders:200
 :0
 :0

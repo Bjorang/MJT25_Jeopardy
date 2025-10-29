@@ -2,8 +2,11 @@ import java.io.*;
 import java.util.*;
 
 public class ScoreBoard {
-
-    private static final String highScorePole = "highScorePole.txt";
+     /* Variables vars;
+    //private static final String highScorePole = "highScorePole.txt";
+    public ScoreBoard(Variables vars) {
+        this.vars = vars;
+    }  */
 
     public void saveScore(String playerOne, int finalScore) {
         List<String> list = loadScores();
@@ -28,7 +31,7 @@ public class ScoreBoard {
 
     private List<String> loadScores() {
         List<String> list = new ArrayList<>();
-        File file = new File(highScorePole);
+        File file = new File(Variables.highScorePole);
 
         if (!file.exists()) {
             return list;
@@ -45,7 +48,7 @@ public class ScoreBoard {
     }
 
     private void writeScores(List<String> list) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(highScorePole))) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(Variables.highScorePole))) {
             for (String line : list) {
                 writer.println(line);
             }
@@ -55,9 +58,9 @@ public class ScoreBoard {
     }
 
     private void displayScores(List<String> list, String currentPlayer) {
-        System.out.println("\n- Rekord top " + Math.min(10, list.size()) + " -\n");
+        System.out.println("\n- Rekord topp " + Math.min(10, list.size()) + "-\n");
 
-        for (int i = 0; i < Math.min(10, list.size()); i++) {
+        for (int i = 0; i < Math.min(5, list.size()); i++) {
             String entry = list.get(i);
             System.out.println((i + 1) + ". " + entry.replace(":", " - "));
         }

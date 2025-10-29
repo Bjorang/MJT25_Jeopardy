@@ -12,9 +12,11 @@ public class Variables {
     
     public static final int[] storeScore = {100,200,400,600,800,1000};
 
-    String answer = "";
-    String playerOne ="";
-    String userInput = "";
+String userIn = "";
+String answer = "";
+String playerOne ="";
+String userInput = "";
+public static final String highScorePole = "highScorePole.txt";
 
     public String[] questPre = new String[36];
     public String[] currentQuestion;
