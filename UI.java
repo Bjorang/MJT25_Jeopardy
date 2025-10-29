@@ -23,9 +23,7 @@ public class UI {
             System.out.println("");
         }
 
-        System.out.println("");
-        System.out.println("Aktuell poängställning " + vars.totalScore);
-        System.out.println("");
+        System.out.println("\nAktuell poängställning " + vars.totalScore + "\n");
         System.out.print("Välj en fråga (t.ex. a1 - a6): ");
 
 }
@@ -55,25 +53,23 @@ public class UI {
 
     public String printQuestion(String[] question, Scanner s) {
 
-        System.out.println("");
+        System.out.println();
 
         for (int i = 0; i < 4; i++) {
             System.out.println(question[i]);
             if (i <= 0) {
-                System.out.println("");
+                System.out.println();
             } else if (i == 3) {
-                System.out.println("");
+                System.out.println();
             }
-            
         }
-
         return s.next();
     }
 
-    public void clearScreen() {
+    public void clearScreen() { 
         
         System.out.print("\033[H\033[0J");
         System.out.flush();
+    }
 
-}
 }

@@ -93,7 +93,7 @@ public class Gameplay {
             
         if (vars.doubbleOrNot == true) {
         try {
-            System.out.println("\nWOW! Denna frågan har dubbel poäng!\n");
+            System.out.println("\nWOW! Denna frågan har dubbel poäng!");
             Thread.sleep(1500);
         } catch (InterruptedException ex) {
         }
@@ -128,10 +128,7 @@ public class Gameplay {
 
             if (!vars.answered.get()) {
                 vars.scoreTime = 0;
-                System.out.println();
-                System.out.println();
-                System.out.println("Tiden har gått ut. Tryck 'valfritt tecken + enter'");
-                System.out.println();
+                System.out.println("\n\nTiden har gått ut. Tryck 'valfritt tecken + enter'\n");
             }
         });
 
@@ -169,9 +166,7 @@ public class Gameplay {
 
     public void endGame() {
         
-        System.out.println("");
-        System.out.println("Nu har du slut på antal rundor!");
-        System.out.println("");
+        System.out.println("\nNu har du slut på antal rundor!\n");
         System.out.println("Din totala slutpoäng blev: " + vars.totalScore);
 
         ScoreBoard sBoard = new ScoreBoard();
