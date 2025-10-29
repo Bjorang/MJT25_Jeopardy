@@ -1,8 +1,10 @@
-import java.util.Scanner;
+import java.util.*;
 public class Gameplay {
     
     Scanner s = new Scanner(System.in); 
     Variables vars = new Variables();
+    private Score scoreTracker = new Score();   
+    Menu menu;
     
     public void playRound(){
          
@@ -11,30 +13,32 @@ public class Gameplay {
         
         while (vars.numberOfRounds < 3) {
 
-        ui.printUI();
+            ui.printUI();
 
-        userIn(); 
+            userIn(); 
 
-        vars.currentQuestion = q.getQuestion(vars.userIn);
+            vars.currentQuestion = q.getQuestion(vars.userIn);
+            
+            ui.editUI(vars.userIn);
+            vars.answered.set(false);
+            countDown(10);
 
-        ui.editUI(vars.userIn);
+            vars.answer = ui.printQuestion(vars.currentQuestion, s);
 
-        vars.answer = ui.printQuestion(vars.currentQuestion, s);
+            vars.answered.set(true);
 
-        userAnswer();
+            userAnswer();
 
-        vars.numberOfRounds++;
+            vars.numberOfRounds++;
 
         }
         
         endGame();
 
-        s.close();
-
     } 
 
     public void userIn(){
-
+        
         do {
             vars.userIn = s.next().toLowerCase();
             vars.inputOK = inputCheck(vars.userIn);
@@ -46,22 +50,32 @@ public class Gameplay {
 
     }
 
-    public void userAnswer(){{
+    public void userAnswer(){
+       
+        char questionIndexChar = vars.userIn.charAt(1);
+        int questionIndex = Character.getNumericValue(questionIndexChar) -1;
 
-        if (vars.answer.equals(vars.currentQuestion[4])) {
-            CountdownTimer.countDown(10);
-                System.out.println("OMFG DU HADE RÄTT!!!");
+            if (vars.answer.equals(vars.currentQuestion[4])) {
+                
+                vars.pointsEarned=Variables.storeScore[questionIndex];
+                System.out.println("Korrekt svar, du får "+ vars.pointsEarned+ " poäng!");
+                
             } else {
-                System.out.println("lol fel!");
+                System.out.println("lol fel!"); 
+                vars.pointsEarned = 0;
             }
+          
+        scoreTracker.addPoints(vars.pointsEarned);
+        System.out.println("Aktuell poängställning " + scoreTracker.getTotalScore());
+            
         }
-    }
 
     public void endGame(){
         
-        if (vars.numberOfRounds == 3){
-                System.out.println("nu har du slut på antal rundor"); 
-        }
+        System.out.println("nu har du slut på antal rundor");
+
+        menu = new Menu(); 
+        menu.launchMenu();
     }
 
     public boolean inputCheck(String input) {
@@ -82,14 +96,46 @@ public class Gameplay {
         for (int i = 0; i < vars.preIndex; i++) {
             if (input.equals(vars.questPre[i])) {
                 System.out.println("Denna frågan har du redan valt!");
-                return false;
+            return false;
             }
         }
 
     vars.questPre[vars.preIndex] = input;
     vars.preIndex++;
 
-    return true;
+            return true;
+    } 
+
+    public Thread countDown(int start){
+        
+        Thread cD = new Thread(() ->{
+            for (int i = start; i >= 0; i--){
+            
+                if (vars.answered.get()){
+                    return;
+                }
+
+        System.out.print("\r Tid kvar: " + i + " Ditt svar: ");
+            
+            try {
+                Thread.sleep(1000);
+                
+            } catch (InterruptedException e) {
+                System.out.println("");
+            }
+            
+        }
+        if(!vars.answered.get()){
+            System.out.println("");
+            System.out.println("Tiden har gått ut");
+            System.out.println("");       
+        }
+
+    });
+
+        cD.start();
+        return cD;
+
     }
 
 }
