@@ -80,13 +80,6 @@ public class Gameplay {
         return true;
     }
 
-   
-            
-
-            
-           
-    
-
     public void isDouble() {
 
         vars.doubbleOrNot = false;
