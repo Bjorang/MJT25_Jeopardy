@@ -12,7 +12,6 @@ public class Variables {
 
     public static final int[] storeScore = {100,200,400,600,800,1000};
 
-    String userIn = "";
     String answer = "";
     String playerOne ="";
     String userInput = "";
