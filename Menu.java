@@ -31,7 +31,7 @@ public class Menu {
             switch (userMenuIn) {
                 case "1" -> {
                     s.nextLine();
-                    System.out.println("Ange ditt namn ");
+                    System.out.print("Ange ditt namn: ");
                     vars.playerOne = s.nextLine().trim();
                     vars.totalScore = 0;
                     play.playRound();}
@@ -48,16 +48,14 @@ public class Menu {
         ScoreBoard sBoard = new ScoreBoard();
         sBoard.displayHighScore();
 
-        System.out.println("\nTryck på valfri tangent för att återgå till menyn...");
-    s.next();
-        //System.out.println("Nuvarande totalpoäng: " + vars.totalScore);
+        System.out.print("\nTryck på valfri tangent för att återgå till menyn: ");
+        s.next();
         launchMenu();
     }
 
     public void userRules() {
         ui.clearScreen();
-
-        System.out.println(vars.rules);
+        System.out.print("\n" + vars.rules + vars.space);
         s.next();
         launchMenu();
     }
@@ -66,16 +64,12 @@ public class Menu {
        
         ui.clearScreen();
         
-            for (int i = 0; i < 2; i++) {
+        System.out.println("\n" + vars.tack);
         
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-            }
-                    if (i==0) {
-                        System.out.println(vars.tack);
-                    }
-            }
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {}    
+            
         s.close();
         ui.clearScreen();
         System.exit(0);

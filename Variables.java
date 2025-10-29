@@ -12,10 +12,10 @@ public class Variables {
 
     public static final int[] storeScore = {100,200,400,600,800,1000};
 
-String userIn = "";
-String answer = "";
-String playerOne ="";
-String userInput = "";
+    String userIn = "";
+    String answer = "";
+    String playerOne ="";
+    String userInput = "";
 
     public String[] questPre = new String[36];
     public String[] currentQuestion;
@@ -60,6 +60,8 @@ String userInput = "";
     Välj önskat menyval följt av enter:""";
 
     String rules = """
+    - Regler -
+    
     Som spelare kommer du få upp en spelplan med olika kategorier samt vad frågan är värd för poäng. 
     
     Du väljer fråga genom att skriva in kategoriernas bokstav följt av 
@@ -72,7 +74,7 @@ String userInput = "";
 
     Lycka till!
 
-    Tryck valfritt tecken + enter för att återgå till huvudmenyn:""";
+    Tryck på valfri tangent + enter för att återgå till menyn:""";
 
     String tack = """
     Tack för att du spelade!

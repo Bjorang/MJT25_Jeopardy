@@ -1,5 +1,5 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
 public class ScoreBoard {
 
@@ -55,7 +55,7 @@ public class ScoreBoard {
     }
 
     private void displayScores(List<String> list, String currentPlayer) {
-        System.out.println("== Highscore top " + Math.min(10, list.size()) + "==");
+        System.out.println("\n- Rekord top " + Math.min(10, list.size()) + " -\n");
 
         for (int i = 0; i < Math.min(10, list.size()); i++) {
             String entry = list.get(i);
