@@ -42,14 +42,15 @@ public class Menu {
         ui.clearScreen();
 
         System.out.println("Rekord Test");
-        System.out.println("Nuvarande totalpoäng: " + vars.totalScore);
+        s.next();
         launchMenu();
     }
 
     public void userRules() {
         ui.clearScreen();
 
-        System.out.println("Spelregler Test");
+        System.out.println(vars.rules);
+        s.next();
         launchMenu();
     }
 
