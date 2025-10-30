@@ -8,7 +8,7 @@ public class UI {
     }
 
     public void printGridUI(){
-    
+
         for (int x = 0 ; x < vars.catt.length; x++) {
             for (int y = 0; y < vars.catt[x].length; y++) {
                 System.out.print(vars.catt[x][y]);
