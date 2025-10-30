@@ -1,17 +1,5 @@
-Liz:7000
-Olle:5600
-Greger:4900
+Magnus Härenstam:10000
 Liz:4300
-Anders:4200
-Nisse:4200
-Magnus Härrenstam:3900
-Liz:3500
-Anders:3400
-Liz:3300
-fred:3000
-Anders:2200
-Anders:1800
-Ture:1000
+Peter:500
 Anders:200
-:0
-:0
+
