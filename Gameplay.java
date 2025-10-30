@@ -18,28 +18,27 @@ public class Gameplay {
 
         while (vars.numberOfRounds < 6) {
 
-            ui.clearScreen(); //Städar terminalen för en ny runda.
-            ui.printGridUI(); //Printar spelplanen.
+            ui.clearScreen(); 
+            ui.printGridUI(); 
 
-            userInput(); //Tar in användarens val av fråga och ser till att Stringen är korekt.
-            isDouble(); //Kollar om användaren han chans på dubbel poäng men en slumpgenerator.
+            userInput(); 
+            isDouble(); 
 
-            vars.currentQuestion = q.getQuestion(vars.userInput); //Hämtar frågan användaren valt.
-            ui.editGridUI(vars.userInput); //Redigerar bort rutan på spelplanen som användaren valt.
+            vars.currentQuestion = q.getQuestion(vars.userInput); 
+            ui.editGridUI(vars.userInput); 
 
-            vars.answered.set(false); //Sätter ett falsk värde som Threaden använder för att hålla kolla på spelets countdown timer. 
+            vars.answered.set(false); 
 
-            countdown(10); //Startar timern för användaren. 
+            countdown(10); 
             
-            vars.answer = ui.printQuestion(vars.currentQuestion, s); //Printar frågan.
-            vars.answered.set(true); //stoppar timern när ett svar kommit.
-
-            userAnswer(); //Rättar svares som användaren matade in och hanterar poängen.
-            vars.numberOfRounds++; //Räknar vilken runda vi är på.
+            vars.answer = ui.printQuestion(vars.currentQuestion, s); 
+            vars.answered.set(true); 
+            userAnswer(); 
+            vars.numberOfRounds++; 
 
         }
 
-        endGame(); //Printar ut spelarens slutpoäng, låter användaren skriva in sitt namn på rekordlistan och skickar sedan tillbaka dem till huvudmenyn. 
+        endGame(); 
     }
 
     public void userInput() {
@@ -128,9 +127,7 @@ public class Gameplay {
 
             if (!vars.answered.get()) {
                 vars.scoreTime = 0;
-                System.out.print("\033[-1A");
-                System.out.print("\r\033[1K");
-                System.out.print("Tiden har gått ut. Tryck 'valfritt tecken + enter': ");
+                System.out.println("\n\nTiden har gått ut. Tryck 'valfritt tecken + enter'\n");
             }
         });
 
@@ -154,7 +151,7 @@ public class Gameplay {
 
         } else if (vars.scoreTime == 0) {
             vars.pointsEarned = 0;
-            System.out.println("\nKorrekt svar var: " + vars.currentQuestion[4] + " Men det blir inga poäng\n");
+            System.out.println("\nTyvärr tog tiden slut! Rätt svar var: " + vars.currentQuestion[4] + "\n");
 
         } else {
             vars.pointsEarned = 0;
