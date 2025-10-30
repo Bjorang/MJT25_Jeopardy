@@ -1,12 +1,12 @@
 public class Score {
-    
-    private int totalScore = 0;
-
+    Variables vars = new Variables();
 
     public void addPoints(int points){
-        this.totalScore += points;
+        this.vars.totalScore += points;
 }
-public int getTotalScore (){
-    return totalScore;
-}
+
+    public int getTotalScore (){
+        return vars.totalScore;
+    }
+
 }

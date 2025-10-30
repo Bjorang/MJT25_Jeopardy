@@ -1,67 +1,78 @@
 import java.util.Scanner;
 
 public class Menu {
-    Scanner s = new Scanner(System.in); 
-    Gameplay play = new Gameplay(); 
-    Variables vars = new Variables();
-    UI ui = new UI();
-    
-    public void launchMenu(){
-        
-        while (vars.exit){
-            ui.printMenuUI();
-            userMenuIn();
-        }
-        
-        s.close();
+    Scanner s = new Scanner(System.in);
+    Variables vars;
+    Gameplay play;
+    UI ui;
+
+    public Menu() {
+        this.vars = new Variables();
+        this.ui = new UI(vars);
+        this.play = new Gameplay(vars);
     }
-   
-    public void userMenuIn(){
 
-        do { 
-        
-        String userMenuIn = s.next();
-        System.out.print("\033[1A");
-        System.out.print("");
-        
+    public void launchMenu() {
+        ui.clearScreen();
+        System.out.print(vars.mainMenu + vars.space);
+        userMenuIn();
+    }
 
-        if (!userMenuIn.matches("[1-4]")) {
+    public void userMenuIn() {
+        do {
+            String userMenuIn = s.next();
+
+            if (!userMenuIn.matches("[1-4]")) {
                 System.out.println("Ogiltigt menyval!");
                 vars.userMenuInBo = false;
                 continue;
-        }
+            }
 
-        switch (userMenuIn) {
-                case "1" -> play.playRound();
+            switch (userMenuIn) {
+                case "1" -> {
+                    s.nextLine();
+                    System.out.print("\nAnge ditt namn: ");
+                    vars.playerOne = s.nextLine().trim();
+                    vars.totalScore = 0;
+                    play.playRound();}
                 case "2" -> userHigh();
                 case "3" -> userRules();
                 case "4" -> userEx();
-                default  -> {
-                    System.out.println("Ogiltigt menyval!"); 
-                }
+                default -> System.out.println("Ogiltigt menyval!");
             }
         } while (!vars.userMenuInBo);
     }
 
-    public void userHigh(){
+    public void userHigh() {
+        ui.clearScreen();
+        ScoreBoard sBoard = new ScoreBoard();
+        sBoard.displayHighScore();
 
-        System.out.println("Rekord Test");
+        System.out.print("\nTryck på valfri tangent för att återgå till menyn: ");
+        s.next();
         launchMenu();
-
     }
 
-    public void userRules(){
-
-        System.out.println("Spelregler Test");
+    public void userRules() {
+        ui.clearScreen();
+        System.out.print("\n" + vars.rules + vars.space);
+        s.next();
         launchMenu();
-
     }
 
-    public void userEx(){
+    public void userEx() {
+       
+        ui.clearScreen();
         
-        vars.exit = false;
-        System.out.println(ui.tack);
-
+        System.out.println("\n" + vars.tack);
+        
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {}    
+            
+        s.close();
+        ui.clearScreen();
+        System.exit(0);
     }
 
 }
