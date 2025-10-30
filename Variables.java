@@ -68,7 +68,7 @@ public class Variables {
     Efter ditt val kommer frågan visas och du har 10 sek på dig att svara. 
     Det finns också 4 frågor med dubbel poäng gömda på spelplanen.
 
-    Spelet spelas i rundor och du kommer totalt att svara på 10 frågor under ditt spel.
+    Spelet spelas i rundor och du kommer totalt att svara på 6 frågor under ditt spel.
     Om du får tillräckligt bra poäng får du också skriva in ditt namn på rekordsidan!
 
     Lycka till!
