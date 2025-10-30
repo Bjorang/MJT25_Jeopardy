@@ -1,44 +1,75 @@
+import java.util.Scanner;
 
 public class UI {
-
+    Variables vars;
     
-        String[] cat_u = {"      [A]   ","   [B]   ","   [C]  ", "    [D] ", "     [E]  ","    [F]",};
-        String[] cat_0 = {"   [Animals]","[ Films ]","[ Games ]","[ Music ]","[ Anime ]","[   TV  ]",};
+    public UI(Variables vars) {
+        this.vars = vars;
+    }
 
-        String[] cat_1 = {"[1][  100  ]","[2][  200  ]","[3][  400  ]","[4][  600  ]","[5][  800  ]","[6][ 1000  ]",};
-        String[] cat_2 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[ 1000  ]",};
-        String[] cat_3 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[ 1000  ]",};
-        String[] cat_4 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[ 1000  ]",};
-        String[] cat_5 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[ 1000  ]",};
-        String[] cat_6 = {"[  100  ]","[  200  ]","[  400  ]","[  600  ]","[  800  ]","[ 1000  ]",};
+    public void printGridUI(){
 
-
-        String[][] catt = {cat_u, cat_0,};
-        String[][] cats = {cat_1, cat_2, cat_3, cat_4, cat_5, cat_6};
-
-        
-        public void printUI(){
-        
-        for (int x = 0 ; x < catt.length; x++) {
-
-            for (int y = 0; y < catt[x].length; y++) {
-                System.out.print(catt[x][y]);
+        for (int x = 0 ; x < vars.catt.length; x++) {
+            for (int y = 0; y < vars.catt[x].length; y++) {
+                System.out.print(vars.catt[x][y]);
             }
             System.out.println("");
         }
         
-        for (int x = 0 ; x < cats.length; x++) {
-
-            for (int y = 0; y < cats[x].length; y++) {
-                System.out.print(cats[y][x]);
+        for (int y = 0 ; y < vars.cats[0].length; y++) {
+            for (int x = 0; x < vars.cats.length; x++) {
+                System.out.print(vars.cats[x][y]);
             }
             System.out.println("");
         }
+
+        System.out.println("\nAktuell poängställning " + vars.totalScore + "\n");
+        System.out.print("Välj en fråga (t.ex. a1 - a6): ");
+
+}
+
+    public void editGridUI(String input){
         
-        System.out.println("");
-    
+        char category = input.charAt(0);
+        int questionIndex = Character.getNumericValue(input.charAt(1)) - 1;
+
+        String[] selectedCategory;
+            switch (category) {
+                case 'a' -> selectedCategory = vars.cat_01;
+                case 'b' -> selectedCategory = vars.cat_02;
+                case 'c' -> selectedCategory = vars.cat_03;
+                case 'd' -> selectedCategory = vars.cat_04;
+                case 'e' -> selectedCategory = vars.cat_05;
+                case 'f' -> selectedCategory = vars.cat_06;
+                default  -> {
+                    System.out.println("Invalid question code!"); 
+                    return;
+                    }
+                }
+            
+                selectedCategory[questionIndex] = "[       ]";
+
+            }
+
+    public String printQuestion(String[] question, Scanner s) {
+
+        System.out.println();
+
+        for (int i = 0; i < 4; i++) {
+            System.out.println(question[i]);
+            if (i <= 0) {
+                System.out.println();
+            } else if (i == 3) {
+                System.out.println();
+            }
+        }
+        return s.next();
+    }
+
+    public void clearScreen() { 
         
-        
+        System.out.print("\033[H\033[0J");
+        System.out.flush();
     }
 
 }
