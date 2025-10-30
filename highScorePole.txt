@@ -5,6 +5,7 @@ Nisse:4200
 Magnus Härrenstam:3900
 Anders:3400
 fred:3000
+Test:3000
 Anders:2200
 Anders:1800
 Anders:1200
