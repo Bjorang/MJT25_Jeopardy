@@ -128,7 +128,9 @@ public class Gameplay {
 
             if (!vars.answered.get()) {
                 vars.scoreTime = 0;
-                System.out.println("\n\nTiden har gått ut. Tryck 'valfritt tecken + enter'\n");
+                System.out.print("\033[-1A");
+                System.out.print("\r\033[1K");
+                System.out.print("Tiden har gått ut. Tryck 'valfritt tecken + enter': ");
             }
         });
 
@@ -152,7 +154,7 @@ public class Gameplay {
 
         } else if (vars.scoreTime == 0) {
             vars.pointsEarned = 0;
-            System.out.println("\nTyvärr tog tiden slut! Rätt svar var: " + vars.currentQuestion[4] + "\n");
+            System.out.println("\nKorrekt svar var: " + vars.currentQuestion[4] + " Men det blir inga poäng\n");
 
         } else {
             vars.pointsEarned = 0;

@@ -2,11 +2,6 @@ import java.io.*;
 import java.util.*;
 
 public class ScoreBoard {
-     /* Variables vars;
-    //private static final String highScorePole = "highScorePole.txt";
-    public ScoreBoard(Variables vars) {
-        this.vars = vars;
-    }  */
 
     public void saveScore(String playerOne, int finalScore) {
         List<String> list = loadScores();
