@@ -1,6 +1,7 @@
 Liz:7000
 Olle:5600
 Greger:4900
+Liz:4300
 Anders:4200
 Nisse:4200
 Magnus Härrenstam:3900

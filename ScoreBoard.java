@@ -53,7 +53,7 @@ public class ScoreBoard {
     }
 
     private void displayScores(List<String> list, String currentPlayer) {
-        System.out.println("\n- Rekord topp " + Math.min(10, list.size()) + "-\n");
+        System.out.println("\n- Rekord topp " + Math.min(5, list.size()) + "-\n");
 
         for (int i = 0; i < Math.min(5, list.size()); i++) {
             String entry = list.get(i);
