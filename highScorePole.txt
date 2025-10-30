@@ -1,5 +1,5 @@
 Magnus Härenstam:10000
 Liz:4300
 Peter:500
-Anders:200
+Anders:300
 
