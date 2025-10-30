@@ -8,7 +8,7 @@ public class Gameplay {
     Questions q;
     Menu menu;
 
-    public Gameplay(Variables vars) {
+    public Gameplay() {
         this.vars = vars;
         this.ui = new UI(vars); 
         this.q = new Questions();
