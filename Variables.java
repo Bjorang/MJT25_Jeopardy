@@ -70,7 +70,7 @@ public class Variables {
     Det finns också 4 frågor med dubbel poäng gömda på spelplanen.
 
     Spelet spelas i rundor och du kommer totalt att svara på 6 frågor under ditt spel.
-    Om du får tillräckligt bra poäng får du också skriva in ditt namn på rekordsidan!
+    Om du får tillräckligt bra poäng får du också in ditt namn på rekordlistan!
 
     Lycka till!
 
