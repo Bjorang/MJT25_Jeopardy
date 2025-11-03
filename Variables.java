@@ -9,13 +9,13 @@ public class Variables {
     int pointsEarned = 0;
     int totalScore = 0;
     int scoreTime = 0;
-
+    
     public static final int[] storeScore = {100,200,400,600,800,1000};
 
-    String userIn = "";
     String answer = "";
     String playerOne ="";
     String userInput = "";
+    public static final String highScorePole = "highScorePole.txt";
 
     public String[] questPre = new String[36];
     public String[] currentQuestion;

@@ -31,7 +31,7 @@ public class Menu {
             switch (userMenuIn) {
                 case "1" -> {
                     s.nextLine();
-                    System.out.print("Ange ditt namn: ");
+                    System.out.print("\nAnge ditt namn: ");
                     vars.playerOne = s.nextLine().trim();
                     vars.totalScore = 0;
                     play.playRound();}
